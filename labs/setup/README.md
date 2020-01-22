@@ -8,12 +8,13 @@ Now that you have been assigned a team you must do the following:
 
 ## Team members
 
-- John Doe johndoe@u.boisestate.edu
+- Tray Simpson traysimpson@u.boisestate.edu (208) 921-7614
+
 - Jane Doe janedoe@u.boisestate.edu (Sponsor liaison)
 
 ## Method of communication
 
-Join our slack channel @ [example](http://example.com), email, smoke signals etc.
+Group text
 
 ## Submission
 
