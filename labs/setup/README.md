@@ -10,6 +10,8 @@ Now that you have been assigned a team you must do the following:
 
 - Tray Simpson traysimpson@u.boisestate.edu (208) 921-7614
 
+- Garett Skaar garettskaar@u.boisestate.edu (208) 521-9728
+
 - Jane Doe janedoe@u.boisestate.edu (Sponsor liaison)
 
 ## Method of communication
