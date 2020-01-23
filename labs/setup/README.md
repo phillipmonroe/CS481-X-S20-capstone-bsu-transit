@@ -12,6 +12,8 @@ Now that you have been assigned a team you must do the following:
 
 - Garett Skaar garettskaar@u.boisestate.edu (208) 521-9728
 
+- Phillip Monroe phillipmonroe@u.boisestate.edu (208) 863-2028
+
 - Jane Doe janedoe@u.boisestate.edu (Sponsor liaison)
 
 ## Method of communication
