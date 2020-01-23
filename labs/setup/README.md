@@ -18,6 +18,8 @@ Now that you have been assigned a team you must do the following:
 
 - Jane Doe janedoe@u.boisestate.edu (Sponsor liaison)
 
+- Sean Marsh seanmarsh@u.boisestate.edu (208) 553-4131
+
 ## Method of communication
 
 Group text
