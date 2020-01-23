@@ -14,6 +14,8 @@ Now that you have been assigned a team you must do the following:
 
 - Phillip Monroe phillipmonroe@u.boisestate.edu (208) 863-2028
 
+- Colin Beckley williambeckley@u.boisestate.edu (208) 602-9130
+
 - Jane Doe janedoe@u.boisestate.edu (Sponsor liaison)
 
 ## Method of communication
