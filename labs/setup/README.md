@@ -16,7 +16,7 @@ Now that you have been assigned a team you must do the following:
 
 - Colin Beckley williambeckley@u.boisestate.edu (208) 602-9130
 
-- Jane Doe janedoe@u.boisestate.edu (Sponsor liaison)
+- Jared Ostyn ostyn@live.com (Sponsor liaison)
 
 - Sean Marsh seanmarsh@u.boisestate.edu (208) 553-4131
 
