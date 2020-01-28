@@ -16,13 +16,15 @@ Now that you have been assigned a team you must do the following:
 
 - Colin Beckley williambeckley@u.boisestate.edu (208) 602-9130
 
+- Desmond Porth desmondporth@u.boisestate.edu (208) 721-7067
+
 - Jared Ostyn ostyn@live.com (Sponsor liaison)
 
 - Sean Marsh seanmarsh@u.boisestate.edu (208) 553-4131
 
 ## Method of communication
 
-Group text
+Group text via GroupMe
 
 ## Submission
 
