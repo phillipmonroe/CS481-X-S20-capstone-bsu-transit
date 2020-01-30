@@ -22,6 +22,8 @@ Now that you have been assigned a team you must do the following:
 
 - Sean Marsh seanmarsh@u.boisestate.edu (208) 553-4131
 
+- Justin Sonnen justinsonnen@u.boisestate.edu (208) 559-6888
+
 ## Method of communication
 
 Group text via GroupMe
