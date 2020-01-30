@@ -1,0 +1,35 @@
+jan 30th:
+Set up first meeting with the sponsors.
+Still need to get user stories to build backlog with. 
+
+Potential users of the system: 
+employers who want to add large quantitiess of transit users.
+CityGo staff
+
+
+Main goal: User story
+as an employer staff i want to add passes to an employee/staff
+
+secondary goal: User story
+as a citygo admin i want to administer employers.
+
+There is an app already, so we have some functionality done. We might have
+build or own part of that app. 
+
+They need to be able to set up and tear down a subscription.
+
+Languages:
+python3
+mySQL
+angular
+
+tools:
+Docker
+zenhub
+angular material for css front end
+
+tasks:
+set up a zenhub 
+look at API
+look into docker more
+install dependencies
