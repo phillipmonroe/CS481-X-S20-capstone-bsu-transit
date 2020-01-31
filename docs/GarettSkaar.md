@@ -1,6 +1,6 @@
-## Garett Skaar - Transit Notes
+# Garett Skaar - Transit Notes
 
-### 1/30/2020
+## Week 2
 
 We meet with Jared today and he walked us down to the City Go/Valley Regional Transit Office. We had our pictures taken for security access badges.
 
