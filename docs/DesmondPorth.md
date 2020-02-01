@@ -14,3 +14,4 @@ Project discussion notes:
 &nbsp;&nbsp;Homework specific for myself  
 &nbsp;&nbsp;&nbsp;&nbsp;- Review Masabi API documentation  
 &nbsp;&nbsp;&nbsp;&nbsp;- Create Doodle poll for group member availability  
+&nbsp;&nbsp;&nbsp;&nbsp;- Set up my machine with the tools/software listed in development stack
