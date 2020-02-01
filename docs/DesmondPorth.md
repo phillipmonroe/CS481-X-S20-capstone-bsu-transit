@@ -3,7 +3,7 @@
 Met with Shane Panter in class. Had no updates for him because we had not met with our project sponsor yet.  
 
 ## 1/30/2020
-Met with sponsor Jared. Had our picture taken for the ID badge. Started to discuss the scope/semantics of our project with sponsors.
+Met with sponsor Jared. Had our picture taken for the ID badge. Started to discuss the scope/semantics of our project with sponsors.  
 Meeting notes:  
 &nbsp;&nbsp;Development stack  
 &nbsp;&nbsp;&nbsp;- Angular - Frontend  
