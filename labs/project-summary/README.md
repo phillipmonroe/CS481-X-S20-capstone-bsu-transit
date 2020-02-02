@@ -1,28 +1,16 @@
-# Your Project Name
+# Transit (CityGO)
 
 ## Executive summary
 
-You need to summarize your project in layman terms. This should be targeted to an executive who is going to be writing you a check to do your project but has no technical background. If you are working on a sponsored project you should use the project abstract as a guideline. I expect the team to paraphrase the abstract not just cut and paste the existing description.
+The goal of this project is to create a web application for employers so they can provide CityGo passes to their employees. Currently, the CityGo app only allows individual accounts and would be difficult for employers to provide passes as a benefit. This application will streamline the process of purchasing multiple passes for multiple accounts and allow automatic, scheduled payments from the employer. 
 
 ## Detailed summary
 
-You need to describe the project in enough detail so you can understand what the technical constraints are. For example, is this a mobile project, web based project, embedded project, etc? Understanding the technical constraints will impact the rest of your semester, so take your time to understand your project to the best of your ability.
-
-You will use this document to help choose the programming language and any frameworks that you will need. For some teams this will be very straight forward. For example if you are going to do a Linux kernel driver you have to use C. If you are working on a sponsored project you may be leveraging existing code and have no choice but to use what the project has already specified.
+This project will be a web app using Python 3 (Flask), MySQL, and Angular. The current CityGo app utilizes the Masabi Justride API for processing the orders, so we will incorporate that into our app. The design for this project will be expanded on 2/6 when we have a chance to gather the full requirements from both sponsors.
 
 ## Sponsored projects
 
-If you are working on a sponsored project you **must** contact your sponsor and setup a time to meet with them during this week. In your meeting you will review the project and detail the semesters schedule. You will be interacting with the sponsor primarily on the planning/demo sections during the semester.
-
-Here is a list of possible questions that you should ask your sponsor.
-
-- Is there any code, documents, or data that our team should have?
-- Do you have any preference regarding languages or frameworks?
-- Can we setup a regular meeting time with you this semester?
-- What is the best way to get in touch with you?
-- How should we address you in our communications (Sir, Mr./Mrs., First name, Dr., etc.)
-- Do you have any questions for us?
-- **Important** Make sure your sponsor has access to this repository.
+We will meet with our sponsor every week on Thursday at 1:30pm down in the Valleyride office. We do not have access to the original CityGo app source code, so we have a fair amount of freedom designing this project. Our communication will be over GroupMe in a group text, to ensure everyone is on the same page. Because of the variety in everyone's schedule, individual/small group work will be done throughout the week and reviewed at the weekly meetings to ensure everyone is productive. 
 
 ## Submission
 
