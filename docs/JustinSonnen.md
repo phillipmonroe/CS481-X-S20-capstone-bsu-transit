@@ -12,7 +12,7 @@
 
 ## User Stories:
 
-_As an employer/university I want to add passes to employees/students_
+_As an employer/university I want to add passes to employees/students_ <br/>
 _As a CityGo employee/Admin I want to administer employers._
 
 ## To Do
