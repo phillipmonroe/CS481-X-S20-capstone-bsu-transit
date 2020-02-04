@@ -9,4 +9,8 @@
     - Python 3 (Flask), MySQL, Angular
   - Homework to read API documenation and setup workstation
   
+2/4/20
+  - Met with team and Shane
+  - Discussed progress on learning Angular/Flask
+  - Talked about finding open source front-end 
   
