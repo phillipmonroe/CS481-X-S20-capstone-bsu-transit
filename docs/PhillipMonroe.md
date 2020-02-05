@@ -5,13 +5,9 @@
 
 ## Week 3
 
-
-
 ### 01/28/20
 
 We met with Shane in class to confirm we plan to meet our sponsor later this week as well as review expectations.
-
-
 
 ### 01/30/20
 
@@ -32,3 +28,8 @@ We discussed basic structure of the project as well as establishing languages to
 - Ensure all languages are installed on laptop
 
 
+## Week 4
+
+### 02/04/20
+
+Meeting with Shane. Discussed our stack and plans for next meeting with sponsor.
