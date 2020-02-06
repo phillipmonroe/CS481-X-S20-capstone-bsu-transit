@@ -14,3 +14,13 @@
   - Discussed progress on learning Angular/Flask
   - Talked about finding open source front-end 
   
+2/6/20
+  -Ate donuts
+  -Got keypasses
+  -Explored Employer vs Admin requirements
+  -Listed questions for Mosabi/CityGO
+	  *How are Riders identified?
+	  *Do we have access to Riders document?
+	  *What kind of passes are being provided?
+  -Determined app will be soley for distribution of passes, NOT payment
+  -Look into authentication tools/libraries
