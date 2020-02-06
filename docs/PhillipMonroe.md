@@ -23,9 +23,9 @@ We discussed basic structure of the project as well as establishing languages to
 
 #### TODO:
 
-- Read Masabi Documentation
+- ~~Read Masabi Documentation~~
 
-- Ensure all languages are installed on laptop
+- ~~Ensure all languages are installed on laptop~~
 
 
 ## Week 4
@@ -33,3 +33,15 @@ We discussed basic structure of the project as well as establishing languages to
 ### 02/04/20
 
 Meeting with Shane. Discussed our stack and plans for next meeting with sponsor.
+
+### 02/06/20
+
+We decided to focus on functionality for the employers before the City Go admin. 
+31 day passes or permanent passes?
+Google or Facebook Sign-on?
+We started mapping out the functionality of Employer accounts and Admin accounts.
+
+| Employer             | Admin             |
+| -------------------- | ----------------- |
+| Add/Remove Employees | Number of Passes? |
+| Create Employees?    | Employer Details  |
