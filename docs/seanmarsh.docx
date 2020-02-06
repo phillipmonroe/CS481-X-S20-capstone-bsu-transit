@@ -33,3 +33,24 @@ set up a zenhub
 look at API
 look into docker more
 install dependencies
+
+Feb. 6
+
+Note: The sponsor was not here today, so we couldnt get user stories
+
+Working on scoping on what the employer (user) can do?
+What the database might look like?
+Can we get a multiple tickets in one order?
+How will we set up the accounts? using current accounts? creating new accounts
+from the company?
+How is the company going to input their users?
+What information do we need for the user?
+What kind of pass?
+What can we change to the current code?
+Do we expire the tickets expire as soon as the person is done working?
+
+Work that can be done:
+Getting UI setup.
+Adding login skeleton for both admin and employer.
+Creating schema for database.
+
