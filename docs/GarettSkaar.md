@@ -28,3 +28,8 @@ We then began to discuss the project at very high level. The basic idea is to al
   * Angular with Angular Material
   * Docker
 
+## Week 3
+
+We were able to get our security badges for the VRT office. Our main City Go contact was out of town this week, so we are still waiting on more concrete User Stories for the application. We used our time in the office to talk about how we may implement certain aspects of the application, but it was difficult because we still don't know exactly what we are developing. At a very high level, we discussed Employer needs, Admin needs, and Rider needs. Again, these are all expected to change, but it did produce some good questions for us to ask both our sponser and Masabi.
+
+Once we find out how City Go will deal transit passes to Employers, we can then discuss in detail, how to build our application and handle transactions with Masabi. In the mean time, we plan on emailing Masabi questions and studying their API, to see what flexibility we have with these transit passes. Our City Go sponser will be at the next meeting and I believe we will then be able to formulate actual User Stories and begin prototyping our application.
