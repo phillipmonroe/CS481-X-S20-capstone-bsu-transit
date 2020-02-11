@@ -24,3 +24,20 @@ Things to do:
 Me create folder for code
 Sean set up github (not needed)
 Des send message in groupme for coordinating times
+
+
+2/6 Meeting at Transit
+CityGo admin was unavailable again, have to get quesions answered next week.
+Looked at API documentation more closely
+  Ask Masabi some questsions
+  Ask CityGo some questions
+  
+ Employer: 
+ Add accounts - create accounts for the employees? Employee creates separately - click this link?
+ How do we get ID of an existing account (to add tickets onto)
+ What kind of things does the employer need to add (monthly tickets? Daily? On schedules?)
+ Shouldn't need any kind of payment processing
+ Add new product for the emplyers to use? No charge for this one - good validation for no abuse (types of passes)
+ Log in employees
+  single sign on from google etc.?
+ Look up firebase
