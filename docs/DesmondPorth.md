@@ -21,3 +21,20 @@ Completed Doodle poll for my availability
 Set up my local machine with the development stack  
 Reviewed Masabi API documentation  
 
+## 2/4/2020
+Met with Shane Panter in class. Had no updates for him. We discussed the conversation our team had with the sponsors.
+
+## 2/6/2020
+Met with sponsor. Started to plan the design around the two user stories we came up with during our first meeting. Those being:  
+&nbsp;&nbsp; As an Employer/Staff I want to add passes to an Employee/Student  
+&nbsp;&nbsp; As a CityGo admin I want to adminster Employees  
+Questions for Masabi:  
+&nbsp;&nbsp;What identifies an account (Rider object in API diagram)?  
+&nbsp;&nbsp;Can we get that information for an existing account?  
+Questions for Katie:  
+&nbsp;&nbsp;What type of passes are we going to adminster to Employees? 31 day pass, permanent pass?  
+Homework specific for myself  
+&nbsp;&nbsp;Add initial Angular files to our project code base  
+&nbsp;&nbsp;&nbsp;&nbsp; - Accomplished with ng new  
+&nbsp;&nbsp;Look into using a third party to manage logins to our front end
+
