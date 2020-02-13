@@ -89,7 +89,7 @@ If an employee leaves the employer, the pass will just expire and not be reissue
 
 
 #### To Do:
-- Type up and email a list of questions for Katie, and same for Masabi.
+##### Type up and email a list of questions for Katie, and same for Masabi. <br/>
 _What kinds of tickets will be provided?_ <br/>
 _What is a rider?_ <br/>
 _What qualifies a rider for a purchase?  ..._
