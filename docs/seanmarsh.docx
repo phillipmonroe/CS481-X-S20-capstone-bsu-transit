@@ -54,3 +54,16 @@ Getting UI setup.
 Adding login skeleton for both admin and employer.
 Creating schema for database.
 
+Feb. 13
+
+Need to look into what 3rd party login we are going to use.
+	Google
+	Amazon
+	Auth0
+
+Homework:
+We need add functionality that will allow the employee to upload an excel
+file with all the current employees and allow to find the differences.
+
+start creating schema for database. 
+
