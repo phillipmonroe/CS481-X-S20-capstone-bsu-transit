@@ -1,10 +1,10 @@
 # Garett Skaar - Transit Notes
 
-[Week 2](#week2)
+[Week 2](#week-2)
 
-[Week 3](#week3)
+[Week 3](#week-3)
 
-[Week 4](#week4)
+[Week 4](#week-4)
 
 ## Week 2
 
