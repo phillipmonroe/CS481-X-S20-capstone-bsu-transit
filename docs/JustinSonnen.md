@@ -66,9 +66,9 @@ _As a CityGo employee/Admin I want to administer employers._
 
 ##### Dez has created NG new (angular) in shared repo.
 
->At end of meeting we determined that our initial focus for this application is to allow employers to push a bundle of passes to all employees that will participate under their wallet.
+>At the end of our meeting we determined that our initial focus for this application will be to allow employers to push a bundle of passes to all of their employees that are participating under their "wallet".
+_(Most of what we had discussed/planned was prior to this understanding and thus became less relevant)_ 
 
-_(Most of what was we planned was prior to this understanding and became less relevant)_ 
 
 #### What we discussed:
 
@@ -92,5 +92,4 @@ If an employee leaves the employer, the pass will just expire and not be reissue
 - Type up and email a list of questions for Katie, and same for Masabi.
 _What kinds of tickets will be provided?_ <br/>
 _What is a rider?_ <br/>
-_What qualifies a rider for a purchase?_
-##### ...
+_What qualifies a rider for a purchase?  ..._
