@@ -36,5 +36,22 @@ Questions for Katie:
 Homework specific for myself  
 &nbsp;&nbsp;Add initial Angular files to our project code base  
 &nbsp;&nbsp;&nbsp;&nbsp; - Accomplished with ng new  
-&nbsp;&nbsp;Look into using a third party to manage logins to our front end
+&nbsp;&nbsp;Look into using a third party to manage logins to our front end  
 
+## 3/13/2020  
+Use Google single sign in to manage login authentication.  
+Developed more clear questions for Katie:  
+&nbsp;&nbsp;What type of ticket do we provision?  
+&nbsp;&nbsp;Login system would we be limited to  
+&nbsp;&nbsp;&nbsp;&nbsp;Google SSO  
+&nbsp;&nbsp;&nbsp;&nbsp;Amazon  
+&nbsp;&nbsp;&nbsp;&nbsp;Auth0  
+&nbsp;&nbsp;Will users be able to buy other passes using CityGo account  
+Developed more clear questions for Masabi:  
+&nbsp;&nbsp;What identifies a rider?  
+&nbsp;&nbsp;&nbsp;&nbsp;Do we have access to that Resource?  
+&nbsp;&nbsp;Access to product?  
+Upon termination grace period is remaining employee pass 
+Employer pays CityGo base membership, pushing passes
+Employer pays CityGo base membership, not pushing passes
+Unaffiliated, city go manages pushing passes
