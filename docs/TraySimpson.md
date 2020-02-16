@@ -24,3 +24,19 @@
     - What kind of passes are being provided?
   - Determined app will be soley for distribution of passes, NOT payment
   - Look into authentication tools/libraries
+  
+2/11/20
+  - Looked into Google instant sign in to manage accounts
+  - Planned questions for Thursday meeting
+    
+2/13/20
+  - Met with Jared
+  - Discussed more requirements/attempted to understand current system
+    - List of employees is stored as a Excel spreadsheet
+    - Paper passes are distrubuted to employees in the system
+    - Paper passes MUST be available (ADA Standards)
+    - HR passes list of employees to CityGO, who crosscheck emails to match them
+  - Made questions for Mosabi, specifically how riders are identified and how is id accessed/created
+  
+2/16/20
+  - Created rough draft for Data Model
