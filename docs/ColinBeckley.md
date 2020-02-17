@@ -41,3 +41,28 @@ Looked at API documentation more closely
  Log in employees
   single sign on from google etc.?
  Look up firebase
+
+2/13
+Single sign on options: 
+Google - requires google account
+Amazon - find out any req
+Auth0 - works with any?
+
+Talked general strategy with Jared
+Katie got there the last five minutes when the most productive questions got answered
+OVERALL DESIGN:
+Need capability of pushing tickets to customers (appearing on existing app)
+Allow employers to input accounts that they want to connect
+  - could be existing or created, still unsure
+  - master list of employees 
+    - some number of those employees will actually use the service
+  - no concern about company pays base rate employee pays for individual combination
+CSV Parsing could be helpful
+Possible endpoints:
+  Import / create many new
+  Delete many
+  Create single
+  Delete single
+  Push ticket to Account
+    - should have an automated schedule to push monthly passes
+  
