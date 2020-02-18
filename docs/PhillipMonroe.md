@@ -45,3 +45,15 @@ We started mapping out the functionality of Employer accounts and Admin accounts
 | -------------------- | ----------------- |
 | Add/Remove Employees | Number of Passes? |
 | Create Employees?    | Employer Details  |
+
+
+## Week 5
+
+### 2/11/20
+
+Shane did not get to us unti after class so Sean stayed behind to talk to him.
+
+### 2/13/20
+
+We went over specifications in more detail with an employee from CityGo. One of
+our sponsors was not able to show up until the end of our meeting.
