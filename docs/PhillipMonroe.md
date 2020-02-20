@@ -49,11 +49,23 @@ We started mapping out the functionality of Employer accounts and Admin accounts
 
 ## Week 5
 
-### 2/11/20
+### 02/11/20
 
 Shane did not get to us unti after class so Sean stayed behind to talk to him.
 
-### 2/13/20
+### 02/13/20
 
 We went over specifications in more detail with an employee from CityGo. One of
 our sponsors was not able to show up until the end of our meeting.
+
+## Week 6
+
+### 02/20/20
+
+ONLY DOING 31 DAY PASSES AT FIRST
+
+Employer with big list of employees that pays. City Go wants to be able to push out
+passes to a partner's employees. Send out a pass when employee is added to the
+system. Send out a pass to every employee in the list on the same day every month.
+Planned out some tasks.
+
