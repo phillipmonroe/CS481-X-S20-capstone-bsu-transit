@@ -70,11 +70,11 @@ Met with Shane. Expressed that our team finally has a clear path to follow. Kati
 
 ## 2/27/2020
 Met with Jared, gave the status of our work during sprint 1, discussed future work and outlined below:  
-| Stories               | Task                                              |
-|-----------------------|---------------------------------------------------|
-| Flask                 | Create endpoints as needed                        |
-| Angular Admin View    | Admin data request                                |
-| CityGo                | Setup test users                                  |
-| Masabi                | Use POST/PUT data changing requests to their api  |
-| Angular Employer View | Employer data request                             |
-| Auth0                 | How to use authorization tokens provided by Auth0 |
+| Stories               | Task                                             |
+|-----------------------|--------------------------------------------------|
+| Flask                 | Create endpoints as needed                       |
+| Angular Admin View    | Admin data request                               |
+| CityGo                | Setup test users                                 |
+| Masabi                | Use POST/PUT data changing requests to their api |
+| Angular Employer View | Employer data request                            |
+| Auth0                 | Questions about login whitelist                  |
