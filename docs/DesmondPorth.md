@@ -26,19 +26,19 @@ Met with Shane Panter in class. Had no updates for him. We discussed the convers
 
 ## 2/6/2020
 Met with sponsor. Started to plan the design around the two user stories we came up with during our first meeting. Those being:  
-&nbsp;&nbsp; As an Employer/Staff I want to add passes to an Employee/Student  
-&nbsp;&nbsp; As a CityGo admin I want to adminster Employees  
+&nbsp;&nbsp; - As an Employer/Staff I want to add passes to an Employee/Student  
+&nbsp;&nbsp; - As a CityGo admin I want to adminster Employees  
 Questions for Masabi:  
 &nbsp;&nbsp;What identifies an account (Rider object in API diagram)?  
 &nbsp;&nbsp;Can we get that information for an existing account?  
 Questions for Katie:  
 &nbsp;&nbsp;What type of passes are we going to adminster to Employees? 31 day pass, permanent pass?  
 Homework specific for myself  
-&nbsp;&nbsp;Add initial Angular files to our project code base  
-&nbsp;&nbsp;&nbsp;&nbsp; - Accomplished with ng new  
-&nbsp;&nbsp;Look into using a third party to manage logins to our front end  
+&nbsp;&nbsp;- Add initial Angular files to our project code base  
+&nbsp;&nbsp;&nbsp;&nbsp; Accomplished with ng new  
+&nbsp;&nbsp;- Look into using a third party to manage logins to our front end  
 
-## 3/13/2020  
+## 2/13/2020  
 Use Google single sign in to manage login authentication.  
 Developed more clear questions for Katie:  
 &nbsp;&nbsp;What type of ticket do we provision?  
@@ -54,4 +54,17 @@ Developed more clear questions for Masabi:
 Upon termination grace period is remaining employee pass 
 Employer pays CityGo base membership, pushing passes
 Employer pays CityGo base membership, not pushing passes
-Unaffiliated, city go manages pushing passes
+Unaffiliated, city go manages pushing passes  
+
+## 2/18/2020
+Met with Shane. Updated him on the meeting our team had with Transit last week.  
+
+## 2/20/2020
+Developed a clear path of development for our team to follow. Decided we will only deal with 31 day passes.  
+Homework specific for myself  
+&nbsp;&nbsp;Create Flask application with a MySQL connector library imported.
+&nbsp;&nbsp;Track development using an Agile Development workflow with Zenhub.
+
+## 2/25/2020
+Met with Shane. Expressed that our team finally has a clear path to follow. Katie attended the meeting last week and cleared up the waters.
+
