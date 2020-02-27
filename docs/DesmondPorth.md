@@ -49,7 +49,7 @@ Developed more clear questions for Katie:
 &nbsp;&nbsp;Will users be able to buy other passes using CityGo account  
 Developed more clear questions for Masabi:  
 &nbsp;&nbsp;What identifies a rider?  
-&nbsp;&nbsp;&nbsp;&nbsp;Do we have access to that Resource?  
+&nbsp;&nbsp;Do we have access to that Resource?  
 &nbsp;&nbsp;Access to product?  
 Upon termination grace period is remaining employee pass 
 Employer pays CityGo base membership, pushing passes
@@ -62,8 +62,8 @@ Met with Shane. Updated him on the meeting our team had with Transit last week.
 ## 2/20/2020
 Developed a clear path of development for our team to follow. Decided we will only deal with 31 day passes.  
 Homework specific for myself  
-&nbsp;&nbsp;Create Flask application with a MySQL connector library imported.
-&nbsp;&nbsp;Track development using an Agile Development workflow with Zenhub.
+&nbsp;&nbsp;- Create Flask application with a MySQL connector library imported.
+&nbsp;&nbsp;- Track development using an Agile Development workflow with Zenhub.
 
 ## 2/25/2020
 Met with Shane. Expressed that our team finally has a clear path to follow. Katie attended the meeting last week and cleared up the waters.
