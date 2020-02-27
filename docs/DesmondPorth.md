@@ -29,10 +29,10 @@ Met with sponsor. Started to plan the design around the two user stories we came
 &nbsp;&nbsp; - As an Employer/Staff I want to add passes to an Employee/Student  
 &nbsp;&nbsp; - As a CityGo admin I want to adminster Employees  
 Questions for Masabi:  
-&nbsp;&nbsp;What identifies an account (Rider object in API diagram)?  
-&nbsp;&nbsp;Can we get that information for an existing account?  
+&nbsp;&nbsp;- What identifies an account (Rider object in API diagram)?  
+&nbsp;&nbsp;- Can we get that information for an existing account?  
 Questions for Katie:  
-&nbsp;&nbsp;What type of passes are we going to adminster to Employees? 31 day pass, permanent pass?  
+&nbsp;&nbsp;- What type of passes are we going to adminster to Employees? 31 day pass, permanent pass?  
 Homework specific for myself  
 &nbsp;&nbsp;- Add initial Angular files to our project code base  
 &nbsp;&nbsp;&nbsp;&nbsp; Accomplished with ng new  
