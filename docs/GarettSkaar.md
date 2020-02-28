@@ -6,6 +6,10 @@
 
 [Week 4](#week-4)
 
+[Week 5](#week-5)
+
+[Week 6](#week-6)
+
 ## Week 2
 
 We meet with Jared today and he walked us down to the City Go/Valley Regional Transit Office. We had our pictures taken for security access badges.
@@ -53,3 +57,13 @@ There is still some confusion about how this is currently being done. It sounds 
 Ideally, if an employer chooses to pay for any form of transit for their employees, they will use our application to distribute these passes to their individual employees and automatically upload their Rider app with the transit pass. Instead of emails chained down with a link and a sign up, the Employee will just open their Ride app and use the pass. It is required that we still keep the physical paper passes in play. 
 
 We may need to create City Go accounts on the fly, or even Ride accounts on the fly as well. We have alot more to discuss, but we are getting close to a goal and some concrete user stories.
+
+## Week 5
+
+This weeks meeting was much different. Katie was there ready to go and explained the specific scope of the project. We are primarily focused on distributing passes to employees from an employer portal. These passes will be 31 day transit passes and will need to be updated automatically. There is nothing more that they want us to focus on for now. This makes the creation of tasks and user stories much easier.
+
+After Katie spoke, Jared took over and began asking us what kind of tasks we would like to take on. Much of them were stubbed out skeleton methods and views. We divided the new workload and got our first assignment. I chose to build a skeleton City Go Admin view. This component is the view that City Go employees will be routed to after they successfully log in. We will write our own user stories and tasks and start Sprint 1.
+
+## Week 6
+
+We did a very simple stand up meeting and talked about what each one of us worked on. My task was rather trivial and I feel everyone else kind of felt the same way.  Once we finished our stand up, we discussed more possible tasks and whether or not we wanted to continue working on the same issues. I ended up choosing CRUD operations for employersm, switching from front to back. We have a Flask API that needs endpoints, so I am planning on running a local DB with our DB schema and try to create proper JSON objects from the DB, to be sent to the Angular front end. On to Sprint 2
