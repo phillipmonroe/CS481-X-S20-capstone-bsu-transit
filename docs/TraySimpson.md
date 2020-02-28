@@ -40,3 +40,12 @@
   
 2/16/20
   - Created rough draft for Data Model
+  
+2/25/20
+  - Worked on implementing auth0 login
+  - Worked through Angular Auth0 tutorial and implemented into repo
+  
+2/27/20
+  - Attended stand up meeting to discuss progress
+  - Assigned task to understand ability to restrict account permissions
+  - Discussed database identifiers and scheduler options
