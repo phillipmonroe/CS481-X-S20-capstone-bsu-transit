@@ -78,3 +78,7 @@ Met with Jared, gave the status of our work during sprint 1, discussed future wo
 | Masabi                | Use POST/PUT data changing requests to their api |
 | Angular Employer View | Employer data request                            |
 | Auth0                 | Questions about login whitelist                  |
+
+
+## 3/2/2020
+Out of class sick. Continued to work on Angular frontend development
