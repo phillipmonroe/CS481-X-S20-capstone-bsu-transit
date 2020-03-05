@@ -11,7 +11,7 @@ import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   {path: 'city-go-admin', component: CityGoAdminComponent },
   {path: 'employer', component: EmployerComponent },
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]}
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'employer', component: EmployerComponent }
 ];
 
