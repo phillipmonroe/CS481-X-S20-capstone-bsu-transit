@@ -19,7 +19,7 @@ This repo contains all the course materials for CS481 - Senior Design.
 | 2    | Setup                         | [setup](labs/setup) / team contribution | 2020-1-26               |
 | 3    | Project summary               | [project-summary](labs/project-summary) | 2020-2-2                |
 | 4    | Language and Frameworks       | [tech](labs/tech)                       | 2020-2-9                |
-| 5    | Build System                  | [build-system](labs/build-system)       | 2020-2-16               |
+| 5    | Planning Meeting              | [initial planning](labs/build-system)   | 2020-2-16               |
 | 6    | Tests                         | [tests](labs/tests)                     | 2020-2-23               |
 | 7    | Continuous Integration (CI)   | [ci](labs/ci)                           | 2020-3-1                |
 | 8    | Deployment                    | [deployment](labs/deployment)           | 2020-3-8                |
