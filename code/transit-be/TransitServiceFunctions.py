@@ -3,7 +3,7 @@ from TransitService import jsonify, abort, status
 
 # --Employer CRUD Operations--
 #   Return All Employers
-def getEmployers(mysql):
+def get_employers(mysql):
     try:
         cur = mysql.connection.cursor()
         cur.execute("SELECT * FROM employer")
@@ -14,7 +14,7 @@ def getEmployers(mysql):
         print(e)
         abort(404, "Could not retrieve employers")
 #   Add New Employer
-def createEmployer(json, mysql):
+def create_employer(json, mysql):
     try:
         cur = mysql.connection.cursor()
         name = json['name']
@@ -29,7 +29,7 @@ def createEmployer(json, mysql):
         print(e)
         abort(400, "Could not create new employer")        
 #   Get Specified Employer
-def getEmployer(id, mysql):
+def get_employer(id, mysql):
     try:
         cur = mysql.connection.cursor()
         cur.execute("SELECT * FROM employer WHERE employer_id = " + id)
@@ -44,7 +44,7 @@ def getEmployer(id, mysql):
         abort(404, "Could not retrieve employer")
         
 #   Update Specified Employer
-def updateEmployer(id, json, mysql):
+def update_employer(id, json, mysql):
     try:
         cur = mysql.connection.cursor()
         name = json['name']
@@ -59,7 +59,7 @@ def updateEmployer(id, json, mysql):
         print(e)
         abort(404, "Could not update employer")        
 #   Delete Specified Employer
-def deleteEmployer(id, mysql):
+def delete_employer(id, mysql):
     try:
         cur = mysql.connection.cursor()
         cur.execute("DELETE FROM employer WHERE employer_id = " + id)

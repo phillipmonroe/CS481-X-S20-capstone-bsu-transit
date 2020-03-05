@@ -30,21 +30,21 @@ def test_service():
 @app.route('/employers', methods=['GET', 'POST'])
 def employers():
     if request.method == 'GET':
-        return getEmployers(mysql)
+        return get_employers(mysql)
     elif request.method == 'POST':
-        return createEmployer(request.get_json(), mysql)
+        return create_employer(request.get_json(), mysql)
 
 # GET       - returns employer with id == {id}
 # PUT       - updates employer with id == {id}
 # DELETE    - removes employer with id == {id}
 @app.route('/employers/<id>', methods=['GET', 'PUT', 'DELETE'])
-def employersId(id):
+def employers_id(id):
     if request.method == 'GET':
-        return getEmployer(id, mysql)
+        return get_employer(id, mysql)
     elif request.method == 'PUT':
-        return updateEmployer(id, request.get_json(), mysql)
+        return update_employer(id, request.get_json(), mysql)
     elif request.method == 'DELETE':
-        return deleteEmployer(id, mysql)
+        return delete_employer(id, mysql)
 
 # EMPLOYEE CREATE
 
