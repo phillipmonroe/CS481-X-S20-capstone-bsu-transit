@@ -1,12 +1,10 @@
-from flask import Flask, request, Response
-# import mysql.connector
+from flask import Flask, request, Response, jsonify, abort
 from flask_mysqldb import MySQL
 from flask_cors import CORS
 from flask_api import status
 from TransitServiceFunctions import *
 
 app = Flask(__name__)
-
 
 # Change these values to reflect your local database setup
 app.config['MYSQL_USER'] = 'admin'
@@ -27,26 +25,26 @@ def test_service():
     """
     return "Transit backend service is running."
 
-# GET returns all employers
-# POST creates a new employer with the request body data
+# GET   - returns all employers
+# POST  - creates a new employer with the request body data
 @app.route('/employers', methods=['GET', 'POST'])
 def employers():
     if request.method == 'GET':
-        return getEmployers()
+        return getEmployers(mysql)
     elif request.method == 'POST':
-        return createEmployer()
+        return createEmployer(request.get_json(), mysql)
 
-# GET returns employer with id == {id}
-# PUT updates employer with id == {id}
-# DELETE removes employer with id == {id}
+# GET       - returns employer with id == {id}
+# PUT       - updates employer with id == {id}
+# DELETE    - removes employer with id == {id}
 @app.route('/employers/<id>', methods=['GET', 'PUT', 'DELETE'])
 def employersId(id):
     if request.method == 'GET':
-        return getEmployer(id)
+        return getEmployer(id, mysql)
     elif request.method == 'PUT':
-        return updateEmployer(id)
+        return updateEmployer(id, request.get_json(), mysql)
     elif request.method == 'DELETE':
-        return deleteEmployer(id)
+        return deleteEmployer(id, mysql)
 
 # EMPLOYEE CREATE
 
