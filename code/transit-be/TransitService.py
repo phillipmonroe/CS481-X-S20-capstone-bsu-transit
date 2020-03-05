@@ -39,14 +39,14 @@ def employers():
 # GET returns employer with id == {id}
 # PUT updates employer with id == {id}
 # DELETE removes employer with id == {id}
-@app.route('/employers/{id}', methods=['GET', 'PUT', 'DELETE'])
-def employersId():
+@app.route('/employers/<id>', methods=['GET', 'PUT', 'DELETE'])
+def employersId(id):
     if request.method == 'GET':
-        return getEmployer()
+        return getEmployer(id)
     elif request.method == 'PUT':
-        return updateEmployer()
+        return updateEmployer(id)
     elif request.method == 'DELETE':
-        return deleteEmployer()
+        return deleteEmployer(id)
 
 # EMPLOYEE CREATE
 

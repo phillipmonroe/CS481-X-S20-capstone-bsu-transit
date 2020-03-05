@@ -7,11 +7,11 @@ def getEmployers():
 def createEmployer():
     return "Reached create employer"
 # Get specified Employer
-def getEmployer():
+def getEmployer(id):
     return "Reached get Employer"
 # Update specified Employer
-def updateEmployer():
+def updateEmployer(id):
     return "Reached update Employer"
 # Delete specified Employer
-def deleteEmployer():
+def deleteEmployer(id):
     return "Reached delete Employer"
