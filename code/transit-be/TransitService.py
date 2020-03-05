@@ -42,6 +42,25 @@ def createEmployee():
     except Exception as e:
         return "The new Employee is invalid or null", status.HTTP_400_BAD_REQUEST
 
+# EMPLOYEE RETURN
+
+@app.route('/api/employees', methods=['GET'])
+def getEmployees():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM employee")
+    rv = cur.fetchall()
+    return jsonify(rv)
+
+@app.route('/api/employees/<id>', methods=['GET'])
+def getEmployee(id):
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM employee WHERE employee_id = " + id)
+    rv = cur.fetchall()
+    if rv:
+        return jsonify(rv)
+    else:
+        return "The Employee with id " + id + " was not found", status.HTTP_404_NOT_FOUND
+
 # For development only, do not deploy into production.
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8655)
