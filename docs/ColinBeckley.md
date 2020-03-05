@@ -1,4 +1,4 @@
-1/30 Meeting
+## 1/30 Meeting
 Communication options for collaboration, settled on GroupMe.
 
 CityGo project for Vallery Regional Transit (VRT)
@@ -26,7 +26,7 @@ Sean set up github (not needed)
 Des send message in groupme for coordinating times
 
 
-2/6 Meeting at Transit
+## 2/6 Meeting at Transit
 CityGo admin was unavailable again, have to get quesions answered next week.
 Looked at API documentation more closely
   Ask Masabi some questsions
@@ -42,7 +42,7 @@ Looked at API documentation more closely
   single sign on from google etc.?
  Look up firebase
 
-2/13
+## 2/13
 Single sign on options: 
 Google - requires google account
 Amazon - find out any req
@@ -66,3 +66,41 @@ Possible endpoints:
   Push ticket to Account
     - should have an automated schedule to push monthly passes
   
+  ## 2/19 meeting
+  Major topics of conversation were possible pitfalls we could run into / how are they doing things now.
+  Right now Excel file filled with employee emails
+    Each employee on the list gets a paper monthly pass hand delivered by VRT
+    Modifications to excel file are manual
+  Hopefully we automate the process for VRT to manage the employers (create employer, change max number employees, delete employers)
+  Employers should be able to modify the people they have listed as their employees
+    input employees, auto link to account? Create account?
+  
+  
+  ## 2/25 meeting
+  Had a much better meeting with Katie around the entire time. Learned a lot of what the actual scope of the project is.
+  Basically we want to automate the process of employers adding employees, and push monthly passes out automatically to all employees that the employer listed. 
+  VRT shouldn't have to do much besides adding employers and changing their max number if it comes to that.
+  VRT will still manually take payments and decide on their own what kind of deal the employer will get. 
+  
+  Employers add and remove employees
+  Need some way of seeing if the person is linked to account?
+    Did pass successfully send?
+  Passes last 31 days *from activatation*
+  We will send out every 31 days regardless of activation
+  New Employees - send out pass immediately, then on schedule of employer
+  Maybe scheduler run every night to send out all passes to failed
+    
+  Made our first stories, decided on who gets to tackle which
+  Me and Justin:
+    Send a valid request to Masabi API (validate credentials, figure out endpoints)
+    
+  ## 3/1 meeting
+  Checked in on what we had accomplished the previous week.
+  DB is finalized, should be able to start deciding on operations against the database.
+  Basic skeletons of pages done, should be able to fill in
+  
+  Everyone did well on their stories, had pull requests
+  Discusses stories for the coming week.
+  
+  Mine:
+  CRUD operations of issued tickets
