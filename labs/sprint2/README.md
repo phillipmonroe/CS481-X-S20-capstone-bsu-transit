@@ -3,7 +3,7 @@
 ##### Desomond – Flask set up
 - what kind of info will front end need so we can plan for endpoints
 	
-##### Colin/me - we got a 200 ok
+##### Colin/Justin - got a 200 ok
 - we may need some test users in the environment 
 - talk to masabi about adding users
 - masabi test endpoints
