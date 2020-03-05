@@ -11,12 +11,12 @@ TLDR: When a user logins in, auth0 returns 3 things
 
 
 Through Auth0 dashboard, users can be assigned different roles
-    - CityGoAdmin
-        - Able to perform CRUD operations on ALL Employers and Employees
-    - Employer
-        - Able to perform CRUD operations on their associated Employees
-    - User
-        - No permissions granted, should display contact info for CityGO
+- CityGoAdmin
+    - Able to perform CRUD operations on ALL Employers and Employees
+- Employer
+    - Able to perform CRUD operations on their associated Employees
+- User
+    - No permissions granted, should display contact info for CityGO
 
 These roles are given certain permissions through the dashboard and attach to an API.
 Instructions for setting up the backend API can be found here:
