@@ -34,10 +34,11 @@ def createEmployee():
         cur = mysql.connection.cursor()
         name = request.get_json()['name']
         email = request.get_json()['email']
+        success = request.get_json()['success']
         employer_id = request.get_json()['employer_id']
-        cur.execute("INSERT INTO employee (name, email, employer_id) VALUES ('" + str(name) + "', '" + str(email) + "', '" + str(employer_id) + "')")
+        cur.execute("INSERT INTO employee (name, email, employer_id, success) VALUES ('" + str(name) + "', '" + str(email) + "', '" + str(employer_id) + "', '" + str(success) + "')")
         mysql.connection.commit()
-        result = {'name': name, 'email': email, 'employer_id': employer_id}
+        result = {'name': name, 'email': email, 'employer_id': employer_id, 'success': success}
         return jsonify({'result': result}), status.HTTP_201_CREATED
     except Exception as e:
         return "The new Employee is invalid or null", status.HTTP_400_BAD_REQUEST
@@ -60,6 +61,30 @@ def getEmployee(id):
         return jsonify(rv)
     else:
         return "The Employee with id " + id + " was not found", status.HTTP_404_NOT_FOUND
+
+ # EMPLOYEE UPDATE
+
+@app.route('/api/employees/<id>', methods=['PUT'])
+def updateEmployee(id):
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM employee WHERE employee_id = " + id)
+    result = cur.fetchone()
+    if result:
+        cur = mysql.connection.cursor()
+    else:
+        return "The Employee with id " + id + " was not found", status.HTTP_404_NOT_FOUND 
+
+    try:  
+        name = request.get_json()['name']
+        email = request.get_json()['email']
+        success = request.get_json()['success']
+        employer_id = request.get_json()['employer_id']
+        cur.execute("UPDATE employee SET name = '" + str(name) + "', email = '" + str(email) + "', success = '" + str(success) + "', employer_id = '" + str(employer_id) + "' WHERE employee_id = " + id)
+        mysql.connection.commit()
+        result = {'name': name, 'email': email, 'employer_id': employer_id, 'success': success}
+        return jsonify({'result': result})
+    except Exception as e:
+        return "The new Employee is invalid or null", status.HTTP_400_BAD_REQUEST
 
 # For development only, do not deploy into production.
 if __name__ == '__main__':
