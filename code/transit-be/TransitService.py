@@ -86,6 +86,28 @@ def updateEmployee(id):
     except Exception as e:
         return "The new Employee is invalid or null", status.HTTP_400_BAD_REQUEST
 
+# EMPLOYEE DELETE
+
+@app.route('/api/employees/<id>', methods=['DELETE'])
+def deleteEmployee(id):
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM employee WHERE employee_id = " + id)
+    result = cur.fetchone()
+    if result:
+        cur = mysql.connection.cursor()
+    else:
+        return "The Employee with id " + id + " was not found", status.HTTP_404_NOT_FOUND 
+
+    cur = mysql.connection.cursor()
+    response = cur.execute("DELETE FROM employee WHERE employee_id = " + id)
+    mysql.connection.commit()
+
+    if response > 0:
+        result = {'message': 'Employee deleted'}
+
+    return jsonify({'result': result})
+    
+
 # For development only, do not deploy into production.
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8655)
