@@ -1,7 +1,5 @@
 # Garett Skaar - Transit Notes
 
-[Week 2](#week-2)
-
 [Week 3](#week-3)
 
 [Week 4](#week-4)
@@ -10,7 +8,9 @@
 
 [Week 6](#week-6)
 
-## Week 2
+[Week 7](#week-7)
+
+## Week 3
 
 We meet with Jared today and he walked us down to the City Go/Valley Regional Transit Office. We had our pictures taken for security access badges.
 
@@ -38,13 +38,13 @@ We then began to discuss the project at very high level. The basic idea is to al
   * Angular with Angular Material
   * Docker
 
-## Week 3
+## Week 4
 
 We were able to get our security badges for the VRT office. Our main City Go contact was out of town this week, so we are still waiting on more concrete User Stories for the application. We used our time in the office to talk about how we may implement certain aspects of the application, but it was difficult because we still don't know exactly what we are developing. At a very high level, we discussed Employer needs, Admin needs, and Rider needs. Again, these are all expected to change, but it did produce some good questions for us to ask both our sponser and Masabi.
 
 Once we find out how City Go will deal transit passes to Employers, we can then discuss in detail, how to build our application and handle transactions with Masabi. In the mean time, we plan on emailing Masabi questions and studying their API, to see what flexibility we have with these transit passes. Our City Go sponser will be at the next meeting and I believe we will then be able to formulate actual User Stories and begin prototyping our application.
 
-## Week 4
+## Week 5
 
 Today we met hoping that Katie would be there to answer some of our questions about what it is we are trying to achieve. She did, however, have a sales pitch that hour and couldn't make it until the end. During our meeting, we did make some good work discussing what we would do given circumstance A, B, or C. Once Katie made it in, she explained that the primary focus should be on the distribution of passes from an Employer to an Employee.
 
@@ -58,12 +58,12 @@ Ideally, if an employer chooses to pay for any form of transit for their employe
 
 We may need to create City Go accounts on the fly, or even Ride accounts on the fly as well. We have alot more to discuss, but we are getting close to a goal and some concrete user stories.
 
-## Week 5
+## Week 6
 
 This weeks meeting was much different. Katie was there ready to go and explained the specific scope of the project. We are primarily focused on distributing passes to employees from an employer portal. These passes will be 31 day transit passes and will need to be updated automatically. There is nothing more that they want us to focus on for now. This makes the creation of tasks and user stories much easier.
 
 After Katie spoke, Jared took over and began asking us what kind of tasks we would like to take on. Much of them were stubbed out skeleton methods and views. We divided the new workload and got our first assignment. I chose to build a skeleton City Go Admin view. This component is the view that City Go employees will be routed to after they successfully log in. We will write our own user stories and tasks and start Sprint 1.
 
-## Week 6
+## Week 7
 
 We did a very simple stand up meeting and talked about what each one of us worked on. My task was rather trivial and I feel everyone else kind of felt the same way.  Once we finished our stand up, we discussed more possible tasks and whether or not we wanted to continue working on the same issues. I ended up choosing CRUD operations for employersm, switching from front to back. We have a Flask API that needs endpoints, so I am planning on running a local DB with our DB schema and try to create proper JSON objects from the DB, to be sent to the Angular front end. On to Sprint 2
