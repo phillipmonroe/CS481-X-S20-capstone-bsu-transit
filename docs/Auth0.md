@@ -5,9 +5,9 @@ Password: BSU2020vrt!
 For more information on how Auth0 is currently setup, go to:
 https://auth0.com/docs/quickstart/spa/angular2/01-login
 TLDR: When a user logins in, auth0 returns 3 things
-    1. access_token: authorizes access/permissions
-    2. id_token: caches user profile info
-    3. expires_in: number of seconds till token expires
+1. access_token: authorizes access/permissions
+2. id_token: caches user profile info
+3. expires_in: number of seconds till token expires
 
 
 Through Auth0 dashboard, users can be assigned different roles
