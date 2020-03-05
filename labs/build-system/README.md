@@ -1,26 +1,36 @@
-# Build system documentation
+##### Played the “name game”.
 
-You will need someway to build or run your code from the terminal. Building your code is dependent on the language and technologies used. For example if you project is written in C then your build system could use [cmake](https://cmake.org/). If you are using Java then you may use [ant](https://ant.apache.org/) or [maven](https://maven.apache.org/). You must use **some sort** of build system it is not acceptable to compile your code by hand.
+#### Options for the Login build, best to use third-party service:
+- Google instant sign-in  https://developers.google.com/identity
+- Auth0  https://auth0.com/
+- Amazon https://developer.amazon.com/apps-and-games/login-with-amazon
 
-Your task is to setup an example build system and document how to compile/run a simple **hello world** type of application **from the terminal**. If your language has a package manager such as [NPM](https://www.npmjs.com/) **DO NOT** commit your dependencies to this repository.
+##### Dez has created NG new (angular) in shared repo.
 
-Here is an example using cmake:
+>At the end of our meeting we determined that our initial focus for this application will be to allow employers to push a bundle of passes to all of their employees that are participating under their "wallet".
+_(Most of what we had discussed/planned was prior to this understanding and thus became less relevant)_ 
 
-```bash
-mkdir build
-cd build
-cmake ..
-make
-```
 
-TODO: Write your documentation here
+#### What we discussed:
 
-## Setup .gitignore
+##### Current sign up process for new users:
+- CityGo sends an email that contains a link to the employer that will allow them to sign-up on the CityGo website.
+- The employer distributes the email to their employees
+- Employees follow the link and sign-up using their email (work email preferred but not always what they use)
 
- At this point you have enough information to add a .gitignore for your language, frameworks, package manager etc. to this repository. This is an easy step there are a collection of [gitignore's](https://github.com/github/gitignore) already configured for you to use out of the box!
 
-## Submission
+Currently CityGo issues paper tickets.
+Issuing paper tickets will be required in some cases, but the aim is to minimize
+the paper ticket process and rather push tickets to the JustRide app.
 
-All files for this lab should be added to **this** directory. Remember that [30% of your grade](../../docs/syllabus.md#grading) is dependent on individual effort! So you **MUST** document what you worked on for this lab. If you spent the entire lab doing research then you must upload a summary of your research. Any work that is not documented by some sort of artifact (source code, documentation, etc.) will not be counted towards your final grade.
+Much of the current system involves manual data entry in excel.
 
-This lab is due on the date specified in the root level [README.md](../../README.md).
+It is not an issue signing up mid-month.
+If an employee leaves the employer, the pass will just expire and not be reissued.
+
+
+#### To Do:
+##### Type up and email a list of questions for Katie, and same for Masabi. <br/>
+_What kinds of tickets will be provided?_ <br/>
+_What is a rider?_ <br/>
+_What qualifies a rider for a purchase?  ..._
