@@ -1,22 +1,6 @@
 from flask import Flask, request, Response, jsonify, abort
-from flask_mysqldb import MySQL
-from flask_cors import CORS
-from flask_api import status
-from TransitServiceFunctions import *
-
-app = Flask(__name__)
-
-# Change these values to reflect your local database setup
-app.config['MYSQL_USER'] = 'admin'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'citygodb'
-
-# Don't change this one
-app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
-
-mysql = MySQL(app)
-
-CORS(app)
+from flask import current_app as app
+from .functions import *
 
 @app.route('/')
 def test_service():
@@ -30,9 +14,9 @@ def test_service():
 @app.route('/employers', methods=['GET', 'POST'])
 def employers():
     if request.method == 'GET':
-        return get_employers(mysql)
+        return get_employers()
     elif request.method == 'POST':
-        return create_employer(request.get_json(), mysql)
+        return create_employer(request.get_json())
 
 # GET       - returns employer with id == {id}
 # PUT       - updates employer with id == {id}
@@ -40,24 +24,24 @@ def employers():
 @app.route('/employers/<id>', methods=['GET', 'PUT', 'DELETE'])
 def employers_id(id):
     if request.method == 'GET':
-        return get_employer(id, mysql)
+        return get_employer(id)
     elif request.method == 'PUT':
-        return update_employer(id, request.get_json(), mysql)
+        return update_employer(id, request.get_json())
     elif request.method == 'DELETE':
-        return delete_employer(id, mysql)
-
+        return delete_employer(id)
+"""
 # EMPLOYEE CREATE
 
 @app.route('/api/employees', methods=['POST'])
 def createEmployee():
     try:
-        cur = mysql.connection.cursor()
+        #cur = mysql.connection.cursor()
         name = request.get_json()['name']
         email = request.get_json()['email']
         success = request.get_json()['success']
         employer_id = request.get_json()['employer_id']
         cur.execute("INSERT INTO employee (name, email, employer_id, success) VALUES ('" + str(name) + "', '" + str(email) + "', '" + str(employer_id) + "', '" + str(success) + "')")
-        mysql.connection.commit()
+        #mysql.connection.commit()
         result = {'name': name, 'email': email, 'employer_id': employer_id, 'success': success}
         return jsonify({'result': result}), status.HTTP_201_CREATED
     except Exception as e:
@@ -126,8 +110,4 @@ def deleteEmployee(id):
         result = {'message': 'Employee deleted'}
 
     return jsonify({'result': result})
-    
-
-# For development only, do not deploy into production.
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8655)
+    """
