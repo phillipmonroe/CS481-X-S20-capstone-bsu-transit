@@ -49,3 +49,11 @@
   - Attended stand up meeting to discuss progress
   - Assigned task to understand ability to restrict account permissions
   - Discussed database identifiers and scheduler options
+  
+3/3/20
+  - Met with team to discuss progress on task
+  - Researched capabilities of Auth0 for allowing permissions
+  - Researched user, roles, and permissions
+  
+3/5/20
+  - Got sick so provided team update and documentation from research

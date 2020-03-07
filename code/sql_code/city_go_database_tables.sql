@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS employee(
 		date_issued DATETIME DEFAULT NOW(),
         next_issue_date DATETIME NOT NULL,
         employee_id INTEGER,
+	 employer_id INTEGER,
         foreign key(employer_id) references employer(employer_id),
         foreign key(employee_id) references employee(employee_id));
         

@@ -69,3 +69,7 @@ passes to a partner's employees. Send out a pass when employee is added to the
 system. Send out a pass to every employee in the list on the same day every month.
 Planned out some tasks.
 
+## Week 7
+
+I completed my task to create a skeleton of the employer front end from last week. This week we talked more about any issues we were having and then assigned more tasks. I was assigned to create endpoints for crud operations to the database. These were operations to ineract with the database of employees.
+

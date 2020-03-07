@@ -88,3 +88,15 @@ Went around and updated everyone on where we are with tasks.
 Everyone is up to date with what they are doing
 
 We also chose tasks for the next sprint.
+
+March 5
+
+First we round tabled what we had done in the past week.
+
+We had some discussions on what to use for the database handler.
+I we decided on an orm.
+
+We made a plan to do a demo for city go in the first week of april.
+
+I am going to continue working on a scheduler. I am going to moved towards
+using a cron like 3rd party scheduler to kick off my script.
