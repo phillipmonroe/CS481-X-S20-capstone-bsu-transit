@@ -1,4 +1,4 @@
-### 1/30/2020
+### WEEK 3
 
  - Team was introduced to contacts from CityGo.
  - Had pictures taken for badges.
@@ -22,7 +22,7 @@ _As a CityGo employee/Admin I want to administer employers._
 - update my schedule into doodle
 
 
-### 2/6/2020
+### WEEK 4
 
 - Met with Jared.  Katie was not available to meet this week.
 - Received security badges.
@@ -55,7 +55,7 @@ _As a CityGo employee/Admin I want to administer employers._
 - Become familiar with the build tools we are using.
 
 
-### 2/13/20
+### WEEK 5
 
 ##### Played the “name game”.
 
@@ -94,7 +94,7 @@ _What kinds of tickets will be provided?_ <br/>
 _What is a rider?_ <br/>
 _What qualifies a rider for a purchase?  ..._
 
-### 2/20/2020
+### WEEK 6
 
 #### What we discussed:
 - Employer should be able to log in and push passes out from masabi to the CityGo app
@@ -141,7 +141,7 @@ _What qualifies a rider for a purchase?  ..._
 - python mocks
 - add to ZenHub
 
-### 2/27/2020
+### WEEK 7
 
 #### What we discussed:
 
@@ -177,4 +177,11 @@ _What qualifies a rider for a purchase?  ..._
 
 ### To Do
 - research mcok testing for angular FE and flask BE endpoints
+
+### WEEK 8
+
+##### - To Do
+
+- research testing and AngularCLI
+- made pages for add-employer and add-employee
 
