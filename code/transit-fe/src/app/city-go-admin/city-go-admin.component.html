@@ -1,7 +1,3 @@
 <app-admin-top-bar></app-admin-top-bar>
-<!--Placeholder List-->
-<ul>
-    <li>Employer 1</li>
-    <li>Employer 2</li>
-    <li>Employer 3</li>
-</ul>
+<admin-employer-list  *ngFor="let employer of employers" [employer]="employer"></admin-employer-list>
+<admin-employer-list-view></admin-employer-list-view>
