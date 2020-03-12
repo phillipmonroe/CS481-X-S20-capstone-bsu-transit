@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Employer } from './shared/employer.model';
-import { EmployerService } from './shared/employer.service';
 
 @Component({
   selector: 'city-go-admin',
@@ -8,13 +6,11 @@ import { EmployerService } from './shared/employer.service';
   styleUrls: ['./city-go-admin.component.css']
 })
 export class CityGoAdminComponent implements OnInit {
-  employers: Employer[] = [];
-
-  constructor(private employerService: EmployerService) { }
+  
+  constructor() { }
 
   ngOnInit() {
-    this.employerService.getEmployers()
-      .then(employers => this.employers = employers);
+    
   }
 
 }

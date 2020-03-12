@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Employer } from '../shared/employer.model';
+import { EmployerService } from '../shared/employer.service';
 
 @Component({
   selector: 'admin-employer-list-view',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employer-list-view.component.css']
 })
 export class EmployerListViewComponent implements OnInit {
+  
+  employers: Employer[] = [];
 
-  constructor() { }
+  constructor(private employerService: EmployerService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.employerService.getEmployers()
+      .then(employers => this.employers = employers);
   }
 
 }

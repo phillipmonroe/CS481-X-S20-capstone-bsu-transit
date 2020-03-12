@@ -1,0 +1,33 @@
+<table mat-table [dataSource]="employers" class="center" multiTemplateDataRows>
+    <!-- Columns of table -->
+      <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+        <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+        <td mat-cell *matCellDef="let employers"> {{employers[column]}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let employers" [attr.colspan]="displayedColumns.length">
+          <div class="employer-detail"
+               [@detailExpand]="employers == expandedElement ? 'expanded' : 'collapsed'">
+            <div class="employer-diagram">
+              <div class="employer-name"> {{employers.name}} </div>
+              <div>  ID : {{employers.id}} </div>
+              <div> Max Employees : {{employers.maxEmployees}} </div>
+            </div>
+            <div class="employer-description">
+              {{employers.description}}
+              <span class="employer-description-attribution"> -- Company Description </span>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+    <tr mat-row *matRowDef="let employers; columns: displayedColumns;"
+      class="employer-row"
+      [class.employer-expanded-row]="expandedElement === employers"
+      (click)="expandedElement = expandedElement === employers ? null : employers">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="employer-detail-row"></tr>
+</table>
