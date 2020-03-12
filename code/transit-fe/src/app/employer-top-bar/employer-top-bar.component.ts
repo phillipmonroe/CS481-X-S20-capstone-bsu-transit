@@ -12,4 +12,8 @@ export class EmployerTopBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  add_rmv_onClick(){
+    console.log('hello, add/rmv button works')
+}
+
 }
