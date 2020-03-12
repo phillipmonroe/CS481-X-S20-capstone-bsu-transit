@@ -55,3 +55,13 @@ def employees_id(id):
         return update_employee(id, request.get_json())
     elif request.method == 'DELETE':
         return delete_employee(id)
+
+# POST    - pushes out tickets to provided employer_id
+@app.route('/issue/<employer_id>', methods=['POST'])
+def issue(employer_id):
+    return issue_tickets(employer_id)
+
+# GET    - pushes out tickets to provided employer_id
+@app.route('/issued/<employer_id>', methods=['GET'])
+def issued(employer_id):
+    return get_tickets(employer_id)

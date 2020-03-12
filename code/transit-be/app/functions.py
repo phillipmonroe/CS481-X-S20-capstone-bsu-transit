@@ -1,5 +1,7 @@
 from flask import jsonify, abort
-from .models import db, ma, Employer, Employee, EmployeeSchema
+from datetime import datetime, timedelta
+from .models import *
+
 #   Transit Service Functions
 
 # --Employer CRUD Operations--
@@ -41,6 +43,7 @@ def delete_employer(id):
         abort(404, "Could not delete employer")
 
 #-- Employee CRUD Operations
+
 #-- VERIFICATION NOTES
 # To test run python wsgi.py
 # Send requests to the routes defined
@@ -49,7 +52,7 @@ def delete_employer(id):
 # Ensure that the databse is updated
 # after accessing each end point if it
 # should have updated the database
-employee_schema = EmployeeSchema()
+
 #   Add New Employee
 def create_employee(json):
     try:
@@ -73,7 +76,7 @@ def create_employee(json):
 def get_employees():
     try:
         employees = Employee.query.all()
-        output = employee_schema.dump(employees,many=True)
+        output = employee_schema.dump(employees, many=True)
         return jsonify(output)
     except Exception as e:
         print(e)
@@ -93,12 +96,12 @@ def get_employee(id):
 def get_employer_employees(id):
     try:
         employees = Employee.query.filter_by(employer_id=id).all()
-        output = employee_schema.dump(employees,many=True)
+        output = employee_schema.dump(employees, many=True)
         return jsonify(output)
     except Exception as e:
         print(e)
         abort(404, "Could not get employer's employees")
-        
+       
 #   Update Specified Employee
 def update_employee(id, json):
     try:
@@ -121,9 +124,40 @@ def delete_employee(id):
         employee = Employee.query.get(id)
         db.session.delete(employee)
         db.session.commit()
-
         return jsonify({'message': 'Employee deleted'})
     except Exception as e:
         print(e)
         abort(404, "Could not delete employee")
+
+
+def issue_tickets(employer_id):
+    try:
+        #TODO: A masabi call to issue tickets to the employee 
+        #we should probably use the issue_date that is returned from the masabi API call(s) that would happen, but for right now I'm using this one datetime
+        issue_date = datetime.utcnow()
+
+        employees = Employee.query.filter(Employee.employer_id==employer_id).all()
+        for employee in employees:
+            if not employee.success:
+                #single masabi calls would occur here, if successful then create issued table entry + update employee
+                issue = Issued(issue_date, employee.id, employer_id)
+                db.session.add(issue)
+                if issue:
+                    employee.success = True
+
+        db.session.commit()
+        return jsonify(employee_schema.dump(employees,many=True))
+    except Exception as e:
+        print(e)
+        abort(500, "how did we get here")
+
+
+def get_tickets(employer_id):
+    try:
+        cutoff_date = datetime.utcnow() - timedelta(days=31)
+        issued_tickets = Issued.query.filter(Issued.issue_date > cutoff_date).all()
         
+        return jsonify(issued_schema.dump(issued_tickets))
+    except Exception as e:
+        print(e)
+        abort(500, "an exception here is shameful")
