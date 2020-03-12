@@ -9,6 +9,8 @@ import { EmployerComponent } from './employer/employer.component';
 import { EmployerTopBarComponent } from './employer-top-bar/employer-top-bar.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AddEmployerComponent } from './add-employer/add-employer.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ProfileComponent } from './profile/profile.component';
     EmployerComponent,
     EmployerTopBarComponent,
     NavBarComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddEmployerComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,
