@@ -100,3 +100,11 @@ We made a plan to do a demo for city go in the first week of april.
 
 I am going to continue working on a scheduler. I am going to moved towards
 using a cron like 3rd party scheduler to kick off my script.
+
+Week 9
+
+We did a roundtable on what everyone has been working on. 
+
+I was almost finished with my task of getting the nightly job to run.
+I am going to look into adding a bulk adding file for the employer front end
+
