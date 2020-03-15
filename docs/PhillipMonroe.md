@@ -73,3 +73,11 @@ Planned out some tasks.
 
 I completed my task to create a skeleton of the employer front end from last week. This week we talked more about any issues we were having and then assigned more tasks. I was assigned to create endpoints for crud operations to the database. These were operations to ineract with the database of employees.
 
+## Week 8
+
+This week we decided to move forward with using an ORM for our database interactions in the backend. I was able to convert my existing code to use this ORM. We also made the backend much more module.
+
+## Week 9
+
+This week I was assigned to work on code to send http requests to masabi.
+
