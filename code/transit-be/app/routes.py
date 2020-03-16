@@ -29,85 +29,39 @@ def employers_id(id):
         return update_employer(id, request.get_json())
     elif request.method == 'DELETE':
         return delete_employer(id)
-"""
-# EMPLOYEE CREATE
 
-@app.route('/api/employees', methods=['POST'])
-def createEmployee():
-    try:
-        #cur = mysql.connection.cursor()
-        name = request.get_json()['name']
-        email = request.get_json()['email']
-        success = request.get_json()['success']
-        employer_id = request.get_json()['employer_id']
-        cur.execute("INSERT INTO employee (name, email, employer_id, success) VALUES ('" + str(name) + "', '" + str(email) + "', '" + str(employer_id) + "', '" + str(success) + "')")
-        #mysql.connection.commit()
-        result = {'name': name, 'email': email, 'employer_id': employer_id, 'success': success}
-        return jsonify({'result': result}), status.HTTP_201_CREATED
-    except Exception as e:
-        return "The new Employee is invalid or null", status.HTTP_400_BAD_REQUEST
+# GET       - returns employees with employer_id == <id>
+@app.route('/employers/<id>/employees', methods=['GET'])
+def employer_employees(id):
+    return get_employer_employees(id)
 
-# EMPLOYEE RETURN
+# GET       - returns all employees
+# POST      - creates a new employee with the request body data
+@app.route('/employees', methods=['GET', 'POST'])
+def employees():
+    if request.method == 'GET':
+        return get_employees()
+    elif request.method == 'POST':
+        return create_employee(request.get_json())
 
-@app.route('/api/employees', methods=['GET'])
-def getEmployees():
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM employee")
-    rv = cur.fetchall()
-    return jsonify(rv)
+# GET       - returns employee with id == <id>
+# PUT       - updates employee with id == <id>
+# DELETE    - removes employee with id == <id>
+@app.route('/employees/<id>', methods=['GET', 'PUT', 'DELETE'])
+def employees_id(id):
+    if request.method == 'GET':
+        return get_employee(id)
+    elif request.method == 'PUT':
+        return update_employee(id, request.get_json())
+    elif request.method == 'DELETE':
+        return delete_employee(id)
 
-@app.route('/api/employees/<id>', methods=['GET'])
-def getEmployee(id):
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM employee WHERE employee_id = " + id)
-    rv = cur.fetchall()
-    if rv:
-        return jsonify(rv)
-    else:
-        return "The Employee with id " + id + " was not found", status.HTTP_404_NOT_FOUND
+# POST    - pushes out tickets to provided employer_id
+@app.route('/issue/<employer_id>', methods=['POST'])
+def issue(employer_id):
+    return issue_tickets(employer_id)
 
- # EMPLOYEE UPDATE
-
-@app.route('/api/employees/<id>', methods=['PUT'])
-def updateEmployee(id):
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM employee WHERE employee_id = " + id)
-    result = cur.fetchone()
-    if result:
-        cur = mysql.connection.cursor()
-    else:
-        return "The Employee with id " + id + " was not found", status.HTTP_404_NOT_FOUND 
-
-    try:  
-        name = request.get_json()['name']
-        email = request.get_json()['email']
-        success = request.get_json()['success']
-        employer_id = request.get_json()['employer_id']
-        cur.execute("UPDATE employee SET name = '" + str(name) + "', email = '" + str(email) + "', success = '" + str(success) + "', employer_id = '" + str(employer_id) + "' WHERE employee_id = " + id)
-        mysql.connection.commit()
-        result = {'name': name, 'email': email, 'employer_id': employer_id, 'success': success}
-        return jsonify({'result': result})
-    except Exception as e:
-        return "The new Employee is invalid or null", status.HTTP_400_BAD_REQUEST
-
-# EMPLOYEE DELETE
-
-@app.route('/api/employees/<id>', methods=['DELETE'])
-def deleteEmployee(id):
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM employee WHERE employee_id = " + id)
-    result = cur.fetchone()
-    if result:
-        cur = mysql.connection.cursor()
-    else:
-        return "The Employee with id " + id + " was not found", status.HTTP_404_NOT_FOUND 
-
-    cur = mysql.connection.cursor()
-    response = cur.execute("DELETE FROM employee WHERE employee_id = " + id)
-    mysql.connection.commit()
-
-    if response > 0:
-        result = {'message': 'Employee deleted'}
-
-    return jsonify({'result': result})
-    """
+# GET    - pushes out tickets to provided employer_id
+@app.route('/issued/<employer_id>', methods=['GET'])
+def issued(employer_id):
+    return get_tickets(employer_id)

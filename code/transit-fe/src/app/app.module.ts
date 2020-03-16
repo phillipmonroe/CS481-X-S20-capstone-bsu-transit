@@ -22,6 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployerListManipulationComponent } from './city-go-admin/employer-list-manipulation/employer-list-manipulation.component';
 import { ListAddComponent } from './city-go-admin/employer-list-manipulation/list-add/list-add.component';
 import { ListAddDialogComponent } from './city-go-admin/employer-list-manipulation/list-add/list-add-dialog/list-add-dialog.component';
+import { AddEmployerComponent } from './add-employer/add-employer.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { ListAddDialogComponent } from './city-go-admin/employer-list-manipulati
     EmployerListViewComponent,
     EmployerListManipulationComponent,
     ListAddComponent,
-    ListAddDialogComponent
+    ListAddDialogComponent,
+    AddEmployerComponent
   ],
   imports: [
     BrowserModule,
