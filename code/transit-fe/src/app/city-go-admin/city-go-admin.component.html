@@ -1,7 +1,4 @@
-<app-admin-top-bar></app-admin-top-bar>
-<!--Placeholder List-->
-<ul>
-    <li>Employer 1</li>
-    <li>Employer 2</li>
-    <li>Employer 3</li>
-</ul>
+<!-- <admin-employer-list-view  *ngFor = "let employer of employers" [employer]="employer"></admin-employer-list-view> -->
+<admin-employer-list-view  [employers]="employers"></admin-employer-list-view>
+<employer-list-manipulation></employer-list-manipulation>
+<!-- <div *ngFor="let cur of employers">{{cur.id}}</div> -->
