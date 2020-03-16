@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Employer } from '../../shared/employer.model';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'admin-employer-list',
@@ -16,14 +16,15 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class EmployerListComponent {
 
+  @Input() employers: Employer;
+  displayedColumns: string[] = ["id", "name", "maxEmployees", "description"];
+  expandedEmployer: Employer | null;
+
   constructor() { }
 
   ngOnInit(): void {
-    
   }
 
-  @Input() employers: Employer;
-  displayedColumns: string[] = ["id", "name", "maxEmployees", "description"];
-  expandedElement: Employer | null;
+  
 
 }

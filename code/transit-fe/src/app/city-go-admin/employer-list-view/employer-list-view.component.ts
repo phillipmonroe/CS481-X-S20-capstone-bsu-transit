@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Employer } from '../shared/employer.model';
 import { EmployerService } from '../shared/employer.service';
 
@@ -7,15 +7,12 @@ import { EmployerService } from '../shared/employer.service';
   templateUrl: './employer-list-view.component.html',
   styleUrls: ['./employer-list-view.component.css']
 })
-export class EmployerListViewComponent implements OnInit {
+export class EmployerListViewComponent {
   
-  employers: Employer[] = [];
-
   constructor(private employerService: EmployerService) { }
 
   ngOnInit() {
-    this.employerService.getEmployers()
-      .then(employers => this.employers = employers);
   }
 
+  @Input() employers: Employer;
 }
