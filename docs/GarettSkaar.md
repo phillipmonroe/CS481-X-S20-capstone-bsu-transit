@@ -10,6 +10,8 @@
 
 [Week 7](#week-7)
 
+[Week 8](#week-8)
+
 ## Week 3
 
 We meet with Jared today and he walked us down to the City Go/Valley Regional Transit Office. We had our pictures taken for security access badges.
