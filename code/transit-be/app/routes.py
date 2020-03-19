@@ -18,6 +18,18 @@ def employers():
     elif request.method == 'POST':
         return create_employer(request.get_json())
 
+
+@app.route('/postcsv', methods=['POST'])
+def add_csv():
+    """
+    This is a method to get the csv file and the employer name from the
+    front end, so we can parse it into the database.
+    """
+    employer_name = request.get_json()['employer_name']
+    parse_new_csv(request.file['csv_file'], employer_name)
+    #TODO: might want to return the log to show if we had any issues adding to the database.
+
+
 # GET       - returns employer with id == {id}
 # PUT       - updates employer with id == {id}
 # DELETE    - removes employer with id == {id}
