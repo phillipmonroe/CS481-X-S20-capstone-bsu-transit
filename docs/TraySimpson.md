@@ -66,3 +66,14 @@
   - Got sick so provided team update and documentation from research
   
 ## Week 9
+ - Met with Shane to discuss progress
+ - Continued work on implementing Auth0
+ - Joined group meeting over Zoom because people were sick
+
+## Week 10
+ - Apocalypse began
+ - Set up plan to work online for the rest of semester
+ - Finished Auth Guard to protect access to pages
+ - Met with team over Zoom to discuss next sprint/progress
+ 
+ 
