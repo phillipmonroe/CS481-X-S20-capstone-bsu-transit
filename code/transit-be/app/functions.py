@@ -1,5 +1,9 @@
 from flask import jsonify, abort
 from datetime import datetime, timedelta
+from flask import current_app as app
+import csv
+
+
 from .models import *
 
 #   Transit Service Functions
@@ -41,6 +45,25 @@ def delete_employer(id):
     except Exception as e:
         print(e)
         abort(404, "Could not delete employer")
+
+
+def _get_employer_id(employer_name):
+    """
+    This is a private helper method that will get the employer id
+    from the table based on the employer name associated
+    with that account.
+    Parameters:
+        employer_name: Name of the employer.
+    Returns:
+        employer_id: The id of the employer
+    """
+    try:
+        employer_id = db.session.query(Employer.id).filter(employer_name == Employer.employer_name)
+
+        return employer_id
+    except Exception as e:
+        print(e)
+        abort(404, 'employer not found')
 
 #-- Employee CRUD Operations
 
@@ -161,3 +184,25 @@ def get_tickets(employer_id):
     except Exception as e:
         print(e)
         abort(500, "an exception here is shameful")
+
+
+def parse_new_csv(csv_file, employer_name):
+    """
+    A method to parse the new csv file input by the admin or the employer.
+    The csv file should have two columns, name and email.
+    Parameters:
+        csv_file: CSV file to be parsed.
+        employer_name: Name of the employer that is inputting the data in order to get the id.
+    """
+    employer_id = _get_employer_id(employer_name)
+    with open(csv_file, newline='') as file:
+        csv_dict = csv.DictReader(f=file, fieldnames=['name', 'email'])
+        for row in csv_dict:
+            try:
+                employee = Employee(row['name'], row['email'], employer_id, False)
+                db.session.add(employee)
+                db.session.commit()
+            except Exception as e:
+                print(e)
+                #TODO: this needs to be logged for an error inputting a user.
+
