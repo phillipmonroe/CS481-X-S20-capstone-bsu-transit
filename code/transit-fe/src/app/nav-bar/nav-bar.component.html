@@ -1,8 +1,16 @@
 <mat-toolbar color="primary" class = "bottomSpacing">
 <div>
-    <button (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
-    <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
     <a routerLink="/">Home</a>&nbsp;
-    <a routerLink="profile" *ngIf="auth.loggedIn">Profile</a>
+
+    <!-- Not signed in-->
+    <button (click)="auth.login('city-go-admin')" *ngIf="!auth.loggedIn">Admin Login</button>&nbsp;
+    <button (click)="auth.login('employer')" *ngIf="!auth.loggedIn">Employer Login</button>&nbsp;
+
+    <!-- Signed in-->
+    <a routerLink="city-go-admin" *ngIf="auth.loggedIn">Admin View</a>&nbsp;
+    <a routerLink="employer" *ngIf="auth.loggedIn">Employer View</a>&nbsp;
+    <a routerLink="profile" *ngIf="auth.loggedIn">Profile</a>&nbsp;
+    <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>&nbsp;
+
 </div>
 </mat-toolbar>
