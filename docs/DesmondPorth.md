@@ -1,4 +1,5 @@
 # Work Log
+## Week 3
 ## 1/28/2020
 Met with Shane Panter in class. Had no updates for him because we had not met with our project sponsor yet.  
 
@@ -16,6 +17,7 @@ Meeting notes:
 &nbsp;&nbsp;&nbsp;&nbsp;- Create Doodle poll for group member availability for extra (outside of class) meetings  
 &nbsp;&nbsp;&nbsp;&nbsp;- Set up my machine with the tools/software listed in development stack  
 
+## Week 4
 ## 2/1/2020
 Completed Doodle poll for my availability  
 Set up my local machine with the development stack  
@@ -38,6 +40,7 @@ Homework specific for myself
 &nbsp;&nbsp;&nbsp;&nbsp; Accomplished with ng new  
 &nbsp;&nbsp;- Look into using a third party to manage logins to our front end  
 
+## Week 5
 ## 2/13/2020  
 Use Google single sign in to manage login authentication.  
 Developed more clear questions for Katie:  
@@ -59,6 +62,7 @@ Unaffiliated, city go manages pushing passes
 ## 2/18/2020
 Met with Shane. Updated him on the meeting our team had with Transit last week.  
 
+## Week 7
 ## 2/20/2020
 Developed a clear path of development for our team to follow. Decided we will only deal with 31 day passes.  
 Homework specific for myself  
@@ -68,6 +72,7 @@ Homework specific for myself
 ## 2/25/2020
 Met with Shane. Expressed that our team finally has a clear path to follow. Katie attended the meeting last week and cleared up the waters.
 
+## Week 8
 ## 2/27/2020
 Met with Jared, gave the status of our work during sprint 1, discussed future work and outlined below:  
 | Stories               | Task                                             |
@@ -79,6 +84,8 @@ Met with Jared, gave the status of our work during sprint 1, discussed future wo
 | Angular Employer View | Employer data request                            |
 | Auth0                 | Questions about login whitelist                  |
 
-
 ## 3/2/2020
-Out of class sick. Continued to work on Angular frontend development
+Out of class sick. Continued to work on Angular frontend development. Finished a dynamic front end table for city go admin view
+
+## Week 9
+Assigned to work on backend security. Researching Python Flask JWT as a method to accomplish protecting the backend endpoints. Also need to look into using Auth0 in conjunction with JWT to protect backend endpoints.
