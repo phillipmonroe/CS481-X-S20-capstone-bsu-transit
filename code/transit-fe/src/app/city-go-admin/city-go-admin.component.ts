@@ -15,7 +15,7 @@ export class CityGoAdminComponent implements OnInit {
   ngOnInit() {
     // this.employerService.getEmployers()
     //   .then(employers => this.employers = employers);
-    this.employerService.employers$.subscribe(employers => this.employers.push(employers));
+    // this.employerService.employers$.subscribe(employers => this.employers.push(employers));
   }
 
 }

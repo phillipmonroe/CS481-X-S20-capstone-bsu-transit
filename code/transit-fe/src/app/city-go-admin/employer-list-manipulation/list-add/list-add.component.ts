@@ -13,6 +13,7 @@ import { EventEmitter } from 'protractor';
 })
 export class ListAddComponent {
   
+  employers: Employer[] = []
   employer: Employer = { id: null, name: null, maxEmployees: null, description: null};
 
   constructor(public dialog: MatDialog,private employerService: EmployerService) {}
@@ -29,8 +30,9 @@ export class ListAddComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      result=this.employer;
-      this.employerService.addEmployer(result);
+      this.employers.push(this.employer);
+      result=this.employers;
+      this.employerService.addEmployer(this.employers);
       result = null;
       this.employer = { id: null, name: null, maxEmployees: null, description: null};
     });
