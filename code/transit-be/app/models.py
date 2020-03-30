@@ -4,22 +4,12 @@ class Employer(db.Model):
     """Model for Employers"""
 
     __tablename__ = 'employers'
-    id = db.Column(db.Integer,
-                   primary_key=True)
-    name = db.Column(db.String(64),
-                         index=False,
-                         unique=False,
-                         nullable=False)
-    email = db.Column(db.String(80),
-                      index=True,
-                      unique=True,
-                      nullable=False)
-    rider_cap = db.Column(db.Integer,
-                        index=False,
-                        unique=False,
-                        nullable=False)
-    employees = db.relationship('Employee', backref='employer', lazy=True)
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), index=False, unique=False, nullable=False)
+    email = db.Column(db.String(80), index=True, unique=True, nullable=False)
+    rider_cap = db.Column(db.Integer, index=False, unique=False, nullable=False)
 
+    employees = db.relationship('Employee', backref='employer', lazy=True)
     employees = db.relationship('Employee', backref='employers', lazy=True)
     issued = db.relationship('Issued', backref='employers', lazy=True)
 
@@ -66,6 +56,11 @@ class Issued(db.Model):
         self.employee_id = employee_id
         self.employer_id = employer_id
 
+
+class EmployerSchema(ma.ModelSchema):
+    class Meta:
+        fields = ("id", "name", "email", "rider_cap")
+employer_schema = EmployerSchema()
 
 class EmployeeSchema(ma.ModelSchema):
     class Meta:

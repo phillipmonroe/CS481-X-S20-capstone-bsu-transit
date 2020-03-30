@@ -12,21 +12,34 @@ from .models import *
 #   Return All Employers
 def get_employers():
     try:
-        return "reached get_employers"
+        employers = Employer.query.all()
+        output = employer_schema.dump(employers, many=True)
+        return jsonify(output)
     except Exception as e:
         print(e)
         abort(404, "Could not retrieve employers")
 #   Add New Employer
 def create_employer(json):
     try:
-        return "reached create_employer"
+        name = json['name']
+        email = json['email']
+        rider_cap = json['rider_cap']
+        employer = Employer(name,
+                            email,
+                            rider_cap)
+        db.session.add(employer)
+        db.session.commit()
+        output = employer_schema.dump(employer)
+        return jsonify(output)
     except Exception as e:
         print(e)
         abort(400, "Could not create new employer")        
 #   Get Specified Employer
 def get_employer(id):
     try:
-        return "reached get_employer"
+        employer = Employer.query.get(id)
+        output = employer_schema.dump(employer)
+        return jsonify(output)
     except Exception as e:
         print(e)
         abort(404, "Could not retrieve employer")
@@ -34,14 +47,24 @@ def get_employer(id):
 #   Update Specified Employer
 def update_employer(id, json):
     try:
-        return "reached update_employers"
+        employer = Employer.query.get(id)
+        employer.name = json['name']
+        employer.email = json['email']
+        employer.rider_cap = json['rider_cap']
+        db.session.add(employer)
+        db.session.commit()
+        output = employer_schema.dump(employer)
+        return jsonify(output)
     except Exception as e:
         print(e)
         abort(404, "Could not update employer")        
 #   Delete Specified Employer
 def delete_employer(id):
     try:
-        return "reached delete_employers"
+        employer = Employer.query.get(id)
+        db.session.delete(employer)
+        db.session.commit()
+        return jsonify({'message': 'Employer deleted'})
     except Exception as e:
         print(e)
         abort(404, "Could not delete employer")
