@@ -1,10 +1,12 @@
 from flask import jsonify, abort
+from sqlalchemy import or_
 from datetime import datetime, timedelta
 from flask import current_app as app
 import csv
 
 
 from .models import *
+
 
 #   Transit Service Functions
 
@@ -18,6 +20,8 @@ def get_employers():
     except Exception as e:
         print(e)
         abort(404, "Could not retrieve employers")
+
+
 #   Add New Employer
 def create_employer(json):
     try:
@@ -33,8 +37,10 @@ def create_employer(json):
         return jsonify(output)
     except Exception as e:
         print(e)
-        abort(400, "Could not create new employer")        
-#   Get Specified Employer
+        abort(400, "Could not create new employer")
+    #   Get Specified Employer
+
+
 def get_employer(id):
     try:
         employer = Employer.query.get(id)
@@ -43,7 +49,8 @@ def get_employer(id):
     except Exception as e:
         print(e)
         abort(404, "Could not retrieve employer")
-        
+
+
 #   Update Specified Employer
 def update_employer(id, json):
     try:
@@ -57,8 +64,10 @@ def update_employer(id, json):
         return jsonify(output)
     except Exception as e:
         print(e)
-        abort(404, "Could not update employer")        
-#   Delete Specified Employer
+        abort(404, "Could not update employer")
+    #   Delete Specified Employer
+
+
 def delete_employer(id):
     try:
         employer = Employer.query.get(id)
@@ -68,7 +77,6 @@ def delete_employer(id):
     except Exception as e:
         print(e)
         abort(404, "Could not delete employer")
-
 
 def _get_employer_id(employer_name):
     """
@@ -90,7 +98,9 @@ def _get_employer_id(employer_name):
 
 #-- Employee CRUD Operations
 
-#-- VERIFICATION NOTES
+# -- Employee CRUD Operations
+
+# -- VERIFICATION NOTES
 # To test run python wsgi.py
 # Send requests to the routes defined
 # in routes.py that call the functions
@@ -116,9 +126,11 @@ def create_employee(json):
         return jsonify(output)
     except Exception as e:
         print(e)
-        abort(400, "Could not create new employee") 
+        abort(400, "Could not create new employee")
 
-#   Return All Employees
+    #   Return All Employees
+
+
 def get_employees():
     try:
         employees = Employee.query.all()
@@ -126,9 +138,11 @@ def get_employees():
         return jsonify(output)
     except Exception as e:
         print(e)
-        abort(404, "Could not retrieve employees")  
+        abort(404, "Could not retrieve employees")
 
-#   Get Specified Employee
+    #   Get Specified Employee
+
+
 def get_employee(id):
     try:
         employee = Employee.query.get(id)
@@ -137,6 +151,7 @@ def get_employee(id):
     except Exception as e:
         print(e)
         abort(404, "Could not retrieve employee")
+
 
 #   Get Employers Employees
 def get_employer_employees(id):
@@ -147,7 +162,8 @@ def get_employer_employees(id):
     except Exception as e:
         print(e)
         abort(404, "Could not get employer's employees")
-       
+
+
 #   Update Specified Employee
 def update_employee(id, json):
     try:
@@ -162,9 +178,11 @@ def update_employee(id, json):
         return jsonify(output)
     except Exception as e:
         print(e)
-        abort(404, "Could not update employee")  
+        abort(404, "Could not update employee")
 
-#   Delete Specified Employee
+    #   Delete Specified Employee
+
+
 def delete_employee(id):
     try:
         employee = Employee.query.get(id)
@@ -178,21 +196,21 @@ def delete_employee(id):
 
 def issue_tickets(employer_id):
     try:
-        #TODO: A masabi call to issue tickets to the employee 
-        #we should probably use the issue_date that is returned from the masabi API call(s) that would happen, but for right now I'm using this one datetime
+        # TODO: A masabi call to issue tickets to the employee
+        # we should probably use the issue_date that is returned from the masabi API call(s) that would happen, but for right now I'm using this one datetime
         issue_date = datetime.utcnow()
 
-        employees = Employee.query.filter(Employee.employer_id==employer_id).all()
+        employees = Employee.query.filter(Employee.employer_id == employer_id).all()
         for employee in employees:
             if not employee.success:
-                #single masabi calls would occur here, if successful then create issued table entry + update employee
+                # single masabi calls would occur here, if successful then create issued table entry + update employee
                 issue = Issued(issue_date, employee.id, employer_id)
                 db.session.add(issue)
                 if issue:
                     employee.success = True
 
         db.session.commit()
-        return jsonify(employee_schema.dump(employees,many=True))
+        return jsonify(employee_schema.dump(employees, many=True))
     except Exception as e:
         print(e)
         abort(500, "how did we get here")
@@ -202,12 +220,59 @@ def get_tickets(employer_id):
     try:
         cutoff_date = datetime.utcnow() - timedelta(days=31)
         issued_tickets = Issued.query.filter(Issued.issue_date > cutoff_date).all()
-        
+
         return jsonify(issued_schema.dump(issued_tickets))
     except Exception as e:
         print(e)
         abort(500, "an exception here is shameful")
 
+
+
+def get_reissue_list():
+    """
+    This is a method to get a list of all the employees that
+    have either been unsuccessful or their issued ticket is
+    passed 31 days.
+    """
+    try:
+        reissue_date = datetime.utcnow() - timedelta(days=31)
+        reissue_list = db.session.query(Employee).join(Issued,
+                                                       Employee.id == Issued.employee_id).filter(or_(
+            Employee.success == False, Issued.issue_date < reissue_date))
+        return reissue_list
+    except Exception as e:
+        print(e)
+        # TODO: this needs to be added to a log
+
+
+def push_nightly_tickets(need_issued_list):
+    """
+    Pushes the nightly tickets
+    """
+    for employee in need_issued_list:
+        try:
+            pass
+            #TODO: this is where all the code for the api will go.
+        except Exception as e:
+            print(e)
+            insert_error(employee.id, e)
+        # going to have to catch specific exceptions coming from masabi at later dates
+
+
+def insert_error(employee_id, error_message):
+    """
+    This method will insert an error into the database for logging.
+    If the employee exists in the table currently, then that persons
+    error message will be over written keeping the most recent record only.
+    """
+    error = db.session.query(Error).get(employee_id)
+    if error:
+        error.error_message = error_message
+        db.session.commit()
+    else:
+        new_error = Error(error_message, employee_id)
+        db.session.add(new_error)
+        db.session.commit()
 
 def parse_new_csv(csv_file, employer_name):
     """
@@ -228,4 +293,5 @@ def parse_new_csv(csv_file, employer_name):
             except Exception as e:
                 print(e)
                 #TODO: this needs to be logged for an error inputting a user.
+
 

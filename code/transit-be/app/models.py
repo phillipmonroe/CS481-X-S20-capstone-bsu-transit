@@ -1,4 +1,7 @@
+from datetime import datetime, timedelta, date
+
 from . import db, ma
+
 
 class Employer(db.Model):
     """Model for Employers"""
@@ -8,6 +11,7 @@ class Employer(db.Model):
     name = db.Column(db.String(64), index=False, unique=False, nullable=False)
     email = db.Column(db.String(80), index=True, unique=True, nullable=False)
     rider_cap = db.Column(db.Integer, index=False, unique=False, nullable=False)
+
 
     employees = db.relationship('Employee', backref='employer', lazy=True)
     employees = db.relationship('Employee', backref='employers', lazy=True)
@@ -57,6 +61,23 @@ class Issued(db.Model):
         self.employer_id = employer_id
 
 
+class Error(db.Model):
+    """
+    Model for error table.
+    """
+
+    __tablename__ = 'error'
+    error_id = db.Column(db.Integer, primary_key=True)
+    error_message = db.Column(db.String(256), index=False, unique=False, nullable=False)
+    employee_id = db.Column(db.Integer, db.ForeignKey('employees.id'))
+
+    def __repr__(self):
+        return '<Error {}'.format(self.error_id)
+
+    def __init__(self, error_message, employee_id):
+        self.error_message = error_message
+        self.employee_id = employee_id
+
 class EmployerSchema(ma.ModelSchema):
     class Meta:
         fields = ("id", "name", "email", "rider_cap")
@@ -65,9 +86,26 @@ employer_schema = EmployerSchema()
 class EmployeeSchema(ma.ModelSchema):
     class Meta:
         fields = ("id", "name", "email", "employer_id", "success")
+
+
 employee_schema = EmployeeSchema()
+
 
 class IssuedSchema(ma.ModelSchema):
     class Meta:
         fields = ("issued_id", "issue_date", "employee_id", "employer_id")
+
+
 issued_schema = IssuedSchema(many=True)
+
+
+class ErrorSchema(ma.ModelSchema):
+    """
+    Class to serilaize the error schema to send to the front end
+    from the backend.
+    """
+    class Meta:
+        fields = ("error_id", "error_message", "employee_id")
+
+
+error_schema = ErrorSchema
