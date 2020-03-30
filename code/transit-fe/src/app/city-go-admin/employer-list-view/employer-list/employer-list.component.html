@@ -1,34 +1,8 @@
-<!-- 
-<tr>
-  <th>ID</th>
-  <th>Name</th>
-  <th>MaxEmployes</th>
-  <th>Description</th>
-</tr>
-<div *ngFor="let employer of employers">
-<tr>
-  <td>{{employer.id}}</td>
-  <td>{{employer.name}}</td>
-  <td>{{employer.maxEmployees}}</td>
-  <td>{{employer.description}}</td>
-</tr>
-</div> -->
-
-<table mat-table [dataSource]="employersData" class="mat-elevation-z8">
-  <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
-    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-    <!-- <div *ngFor="let employer of employers"> -->
-
-    <td mat-cell *matCellDef="let employer"> {{employer[column]}} </td>
-  <!-- </div> -->
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
-</table>
-
-<!-- <table mat-table [dataSource]="employers" class="center" multiTemplateDataRows>
-      
+<table mat-table [dataSource]="employers" class="center" multiTemplateDataRows>
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+  <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+  <td mat-cell *matCellDef="let employers"> {{employers[column]}} </td>
+</ng-container>
 
       <ng-container matColumnDef="expandedDetail">
         <td mat-cell *matCellDef="let employers" [attr.colspan]="displayedColumns.length">
@@ -54,4 +28,4 @@
       (click)="expandedEmployer = expandedEmployer === employers ? null : employers">
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="employer-detail-row"></tr>
-</table> -->
+</table>
