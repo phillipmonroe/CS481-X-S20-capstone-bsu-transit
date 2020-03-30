@@ -292,6 +292,4 @@ def parse_new_csv(csv_file, employer_name):
                 db.session.commit()
             except Exception as e:
                 print(e)
-                #TODO: this needs to be logged for an error inputting a user.
-
-
+                app.logger.error("an error({}) occurred inputting {} into the database".format(e, row['name']))

@@ -2,8 +2,12 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 
+import logging
+
 db = SQLAlchemy()
 ma = Marshmallow()
+logging.basicConfig(filename='logging.log', level='debug')
+
 
 def create_app():
     """Construct the core application."""
@@ -17,5 +21,6 @@ def create_app():
 
         # Create tables for our models
         db.create_all()
+        app.logger.info("application started")
 
         return app
