@@ -23,7 +23,6 @@ import { EmployerListManipulationComponent } from './city-go-admin/employer-list
 import { ListAddComponent } from './city-go-admin/employer-list-manipulation/list-add/list-add.component';
 import { ListAddDialogComponent } from './city-go-admin/employer-list-manipulation/list-add/list-add-dialog/list-add-dialog.component';
 import { AddEmployerComponent } from './add-employer/add-employer.component';
-import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
