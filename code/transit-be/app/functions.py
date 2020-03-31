@@ -281,8 +281,11 @@ def parse_new_csv(csv_file, employer_name):
     Parameters:
         csv_file: CSV file to be parsed.
         employer_name: Name of the employer that is inputting the data in order to get the id.
+    Returns:
+        error_list: A list of names that did not get added to the database.
     """
     employer_id = _get_employer_id(employer_name)
+    error_list = {'name': []}
     with open(csv_file, newline='') as file:
         csv_dict = csv.DictReader(f=file, fieldnames=['name', 'email'])
         for row in csv_dict:
@@ -293,3 +296,7 @@ def parse_new_csv(csv_file, employer_name):
             except Exception as e:
                 print(e)
                 app.logger.error("an error({}) occurred inputting {} into the database".format(e, row['name']))
+                error_list['name'].append(row['name'])
+                
+        return jsonify(error_list)
+

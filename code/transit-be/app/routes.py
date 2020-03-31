@@ -24,10 +24,13 @@ def add_csv():
     """
     This is a method to get the csv file and the employer name from the
     front end, so we can parse it into the database.
+    Returns:
+        error_list: If there are any names added to the list, it will return
+        that list of names.
     """
     employer_name = request.get_json()['employer_name']
-    parse_new_csv(request.file['csv_file'], employer_name)
-    #TODO: might want to return the log to show if we had any issues adding to the database.
+    error_list = parse_new_csv(request.file['csv_file'], employer_name)
+    return "Successfully added all employees" if not error_list else error_list
 
 
 # GET       - returns employer with id == {id}
