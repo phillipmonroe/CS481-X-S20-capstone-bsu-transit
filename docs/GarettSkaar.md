@@ -12,6 +12,8 @@
 
 [Week 8](#week-8)
 
+[Week 9](#week-9)
+
 ## Week 3
 
 We meet with Jared today and he walked us down to the City Go/Valley Regional Transit Office. We had our pictures taken for security access badges.
@@ -73,3 +75,7 @@ We did a very simple stand up meeting and talked about what each one of us worke
 ## Week 8
 
 We meet with Jared on a Zoom meeting this week. We decided to be part of the solution and continue our meetings online for the rest of the semeseter. The meeting went really well, we all took turns dicussing what we accomplished and what we are working on. After that, we decided on new tasks and what still needed to be finished. I personally have to continue work on the CRUD employer operations. I detoured away from that task to complete the ORM application refactor. Now that it is up and running, I can finish my task for this sprint. I would also like to note that I work for the Legislature Services Office and due to the pressure of shutting down the building and keeping people home, we have 2 months worth of work needing to be done this week. I keep working 12 hour shifts and have very little time to contribute to the project this week. I will still be able to get my task done, I just havent been as involved as I would like. Again this is just for the record and I don't think it will affect my ability to finish what is assigned to me.
+
+## Week 9
+
+Since our last meeting I, like everyone else, have been adjusting to the new stay at home lifestyle and trying to get work done. We are currently working on finishing up some tasks so that we can piece together all of our working parts and getting the application connected. Philip is going through all aspects of the application and seeing what exact tasks need to completed for this to happen. I specifically have been tasked with researching Docker and will attempt to virtualize our frontend and backend. I have installed the Docker legacy CLI and am reading through the tutorials so that I can begin this process. 
