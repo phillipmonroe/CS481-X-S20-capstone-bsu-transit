@@ -1,11 +1,13 @@
 from flask import jsonify, abort
 from sqlalchemy import or_
 from datetime import datetime, timedelta
+import simplejson as json
 from flask import current_app as app
 import csv
-
+import uuid
 
 from .models import *
+import requests
 
 
 #   Transit Service Functions
@@ -171,7 +173,7 @@ def update_employee(id, json):
         employee.name = json['name']
         employee.email = json['email']
         employee.employer_id = json['employer_id']
-        success = json['success']
+        employee.success = json['success']
         db.session.add(employee)
         db.session.commit()
         output = employee_schema.dump(employee)
@@ -196,17 +198,53 @@ def delete_employee(id):
 
 def issue_tickets(employer_id):
     try:
-        # TODO: A masabi call to issue tickets to the employee
-        # we should probably use the issue_date that is returned from the masabi API call(s) that would happen, but for right now I'm using this one datetime
-        issue_date = datetime.utcnow()
+        username = os.environ.get('MASABI_USER')
+        password= os.environ.get('MASABI_PASS')
+        credentials = {
+            "username":username,
+            "password":password
+        }
+        headers = {'Content-Type': 'application/json'}
+        token_request = requests.post("https://uat.justride.systems/auth-webapp/rest/v/1/VRTIDAHO/token", headers=headers, data=json.dumps(credentials))
+        token = token_request.json()['token']
 
-        employees = Employee.query.filter(Employee.employer_id == employer_id).all()
+        headers = {'Authorization': token,
+                   'Content-Type': 'application/json'}
+
+        employees = Employee.query.filter(
+            Employee.employer_id == employer_id, Employee.success == False).all()
         for employee in employees:
-            if not employee.success:
-                # single masabi calls would occur here, if successful then create issued table entry + update employee
-                issue = Issued(issue_date, employee.id, employer_id)
-                db.session.add(issue)
-                if issue:
+            order_request = {
+                "userName": employee.email,
+                "orderItems": [
+                    {
+                        "productRef": "31D_L",
+                        "journeyId": "DISCRETE",
+                        "quantity": 1
+                    }
+                ]
+            }
+            # create an order
+            order = requests.post("https://uat.justride.systems/broker/api/v2/VRTIDAHO/externalorders",
+                                    headers=headers, data=json.dumps(order_request))
+                                    
+            if order.status_code == 200:
+                purchase_id = uuid.uuid4().hex
+
+                issue_request = {
+                    "userName": employee.email,
+                    "purchaseId": "EXcg" + str(purchase_id),
+                    "paymentInfos": []
+                }
+
+                # issue a ticket
+                issued_ticket = requests.post("https://uat.justride.systems/broker/api/v2/VRTIDAHO/externalorders/" +
+                                order.json()['orderId'] + "/issue", headers=headers, data=json.dumps(issue_request))
+
+                if issued_ticket.status_code == 200:
+                    issue_date = datetime.utcnow()
+                    issue = Issued(issue_date, employee.id, employer_id)
+                    db.session.add(issue)
                     employee.success = True
 
         db.session.commit()
@@ -225,8 +263,6 @@ def get_tickets(employer_id):
     except Exception as e:
         print(e)
         abort(500, "an exception here is shameful")
-
-
 
 def get_reissue_list():
     """
@@ -299,4 +335,3 @@ def parse_new_csv(csv_file, employer_name):
                 error_list['name'].append(row['name'])
                 
         return jsonify(error_list)
-

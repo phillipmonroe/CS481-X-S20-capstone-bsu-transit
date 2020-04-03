@@ -6,7 +6,7 @@ import logging
 
 db = SQLAlchemy()
 ma = Marshmallow()
-logging.basicConfig(filename='logging.log', level='debug')
+logging.basicConfig(filename='logging.log', level='DEBUG')
 
 
 def create_app():
