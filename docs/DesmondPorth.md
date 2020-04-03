@@ -88,4 +88,11 @@ Met with Jared, gave the status of our work during sprint 1, discussed future wo
 Out of class sick. Continued to work on Angular frontend development. Finished a dynamic front end table for city go admin view
 
 ## Week 9
-Assigned to work on backend security. Researching Python Flask JWT as a method to accomplish protecting the backend endpoints. Also need to look into using Auth0 in conjunction with JWT to protect backend endpoints.
+Continued to work on city go admin view. Made an expandable table (rows expand with more information on a specific employer). Finished adding an add employer button.
+
+## Week 10
+Spring break.
+
+## Week 11
+Assigned to work on backend security. Researching Python Flask JWT as a method to accomplish protecting the backend endpoints. Also need to look into using Auth0 in conjunction with JWT to protect backend endpoints. Also added fake data to city go admin view for our presentation/demo. We will be conducting a zoom meeting and recording it. Each of us will share screens and demo what we have worked on.
+
