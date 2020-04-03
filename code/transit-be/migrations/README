@@ -1,0 +1,9 @@
+Generic single-database configuration.
+
+When a model change is made, from transit-be run the command:
+> flask db migrate
+to add the migration to the migrations folder. Verify that the modification is correct.
+
+
+To upgrade the database with migrations in the migrations folder, run the command:
+> flask db upgrade
