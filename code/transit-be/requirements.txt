@@ -4,3 +4,4 @@ flask_mysqldb
 flask_sqlalchemy
 flask-marshmallow
 marshmallow-sqlalchemy
+flask_jwt_extended
