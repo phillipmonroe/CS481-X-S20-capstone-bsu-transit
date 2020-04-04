@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Employer } from '../../shared/employer.model';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { EmployerService } from '../../shared/employer.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'admin-employer-list',
@@ -14,17 +16,19 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ]),
   ],
 })
-export class EmployerListComponent {
+export class EmployerListComponent implements OnInit {
 
-  @Input() employers: Employer;
+  employers = new MatTableDataSource<Employer>();
   displayedColumns: string[] = ["id", "name", "maxEmployees", "description"];
+  columnsToDisplay: string[] = this.displayedColumns.slice();
   expandedEmployer: Employer | null;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private employerService: EmployerService) { 
+    this.employerService.employers$.subscribe(getEmployers => this.employers.data = getEmployers);
   }
 
-  
+  ngOnInit(): void {
+    
+  }
 
 }

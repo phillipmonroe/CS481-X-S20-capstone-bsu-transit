@@ -1,3 +1,5 @@
 <pre *ngIf="auth.userProfile$ | async as profile">
+    //Leave for testing, will remove in later sprint
     <code>{{ profile | json }}</code>
+    <code>{{ profile["https://any-namespace/roles"] }}</code>
     </pre>

@@ -1,16 +1,21 @@
 <mat-toolbar color="primary" class = "bottomSpacing">
-<div>
-    <a routerLink="/">Home</a>&nbsp;
+<div class="inline">
 
     <!-- Not signed in-->
-    <button (click)="auth.login('city-go-admin')" *ngIf="!auth.loggedIn">Admin Login</button>&nbsp;
-    <button (click)="auth.login('employer')" *ngIf="!auth.loggedIn">Employer Login</button>&nbsp;
-
+    <div class="inline" *ngIf="!auth.loggedIn">
+        <a routerLink="/">Home</a>&nbsp;
+        <button (click)="auth.login('city-go-admin')">Admin Login</button>&nbsp;
+        <button (click)="auth.login('employer')">Employer Login</button>&nbsp;
+    </div>
+    
     <!-- Signed in-->
-    <a routerLink="city-go-admin" *ngIf="auth.loggedIn">Admin View</a>&nbsp;
-    <a routerLink="employer" *ngIf="auth.loggedIn">Employer View</a>&nbsp;
-    <a routerLink="profile" *ngIf="auth.loggedIn">Profile</a>&nbsp;
-    <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>&nbsp;
+    <div class="inline" *ngIf="auth.userProfile$ | async as profile">
+        <a routerLink="/">Home</a>&nbsp;
+        <a routerLink="city-go-admin" *ngIf="profile['https://any-namespace/roles']=='admin'">Admin View</a>&nbsp;
+        <a routerLink="employer">Employer View</a>&nbsp;
+        <a routerLink="profile">Profile</a>&nbsp;
+        <button (click)="auth.logout()">Log Out</button>&nbsp;
+    </div>
 
 </div>
 </mat-toolbar>

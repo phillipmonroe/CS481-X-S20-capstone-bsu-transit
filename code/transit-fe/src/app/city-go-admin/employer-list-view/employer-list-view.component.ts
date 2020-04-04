@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { Employer } from '../shared/employer.model';
+import { Component } from '@angular/core';
 import { EmployerService } from '../shared/employer.service';
 
 @Component({
@@ -9,10 +8,9 @@ import { EmployerService } from '../shared/employer.service';
 })
 export class EmployerListViewComponent {
   
-  constructor(private employerService: EmployerService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  @Input() employers: Employer;
 }
