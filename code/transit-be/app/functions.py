@@ -5,6 +5,7 @@ import simplejson as json
 from flask import current_app as app
 import csv
 import uuid
+import os
 
 from .models import *
 import requests
