@@ -19,7 +19,7 @@ def employers():
         return create_employer(request.get_json())
 
 
-@app.route('/postcsv', methods=['POST'])
+@app.route('/upload', methods=['POST'])
 def add_csv():
     """
     This is a method to get the csv file and the employer name from the
@@ -28,8 +28,9 @@ def add_csv():
         error_list: If there are any names added to the list, it will return
         that list of names.
     """
-    employer_name = request.get_json()['employer_name']
-    error_list = parse_new_csv(request.file['csv_file'], employer_name)
+    employer_email = request.form['user']
+    file = request.files['uploads[]'].stream.read().decode("utf-8", "strict")
+    error_list = parse_new_csv(file, employer_email)
     return "Successfully added all employees" if not error_list else error_list
 
 
