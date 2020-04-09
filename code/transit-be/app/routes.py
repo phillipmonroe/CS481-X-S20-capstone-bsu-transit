@@ -1,7 +1,8 @@
 from flask import Flask, request, Response, jsonify, abort
-from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_required, jwt_refresh_token_required, get_jwt_identity, get_raw_jwt)
+# from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_required, jwt_refresh_token_required, get_jwt_identity, get_raw_jwt)
 from flask import current_app as app
 from .functions import *
+from .auth import AuthError, requires_auth
 
 @app.route('/')
 def test_service():
@@ -79,15 +80,25 @@ def issue(employer_id):
 def issued(employer_id):
     return get_tickets(employer_id)
 
-@app.route('/authorize/token', methods=['POST'])
-def get_token():
-    username = request.get_json()['username']
-    access_token = create_access_token(identity=username)
-    return jsonify(access_token)
+# @app.route('/authorize/token', methods=['POST'])
+# def get_token():
+#     username = request.get_json()['username']
+#     access_token = create_access_token(identity=username)
+#     return jsonify(access_token)
 
 
-@app.route('/test', methods=['GET'])
-@jwt_required
-def test():
-    return jsonify('test')
+# @app.route('/test', methods=['GET'])
+# @jwt_required
+# def test():
+#     return jsonify('test')
     
+@app.route('/exams', methods=['GET'])
+@requires_auth
+def add_exam():
+    return jsonify('test')
+
+@app.errorhandler(AuthError)
+def handle_auth_error(ex):
+    response = jsonify(ex.error)
+    response.status_code = ex.status_code
+    return response

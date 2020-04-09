@@ -24,6 +24,8 @@ import { ListAddComponent } from './city-go-admin/employer-list-manipulation/lis
 import { ListAddDialogComponent } from './city-go-admin/employer-list-manipulation/list-add/list-add-dialog/list-add-dialog.component';
 import { AddEmployerComponent } from './add-employer/add-employer.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ExternalApiComponent } from './external-api/external-api.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     EmployerListManipulationComponent,
     ListAddComponent,
     ListAddDialogComponent,
-    AddEmployerComponent
+    AddEmployerComponent,
+    ExternalApiComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     MatButtonModule,
     MatDialogModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
