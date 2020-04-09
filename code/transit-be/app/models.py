@@ -20,6 +20,11 @@ class Employer(db.Model):
     def __repr__(self):
         return '<Employer {}>'.format(self.name)
 
+    def __init__(self, name, email, rider_cap):
+        self.name = name
+        self.email = email
+        self.rider_cap = rider_cap
+
 
 class Employee(db.Model):
     """Model for Employees"""
