@@ -75,7 +75,7 @@ def employees_id(id):
 # POST    - pushes out tickets to provided employer_id
 @app.route('/issue/<employer_id>', methods=['POST'])
 def issue(employer_id):
-    return issue_tickets(employer_id)
+    return issue_employer_tickets(employer_id)
 
 # GET    - pushes out tickets to provided employer_id
 @app.route('/issued/<employer_id>', methods=['GET'])
