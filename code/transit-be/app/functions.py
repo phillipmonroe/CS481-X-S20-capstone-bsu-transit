@@ -198,23 +198,28 @@ def delete_employee(id):
         abort(404, "Could not delete employee")
 
 
-def issue_tickets(employer_id):
+def push_tickets(employees):
+    """
+    This is a method that pushes all of the tickets in the employees list
+    from Masabi to the user.
+    Parameters:
+        employees: A list of employees to push tickets to.
+    """
     try:
         username = os.environ.get('MASABI_USER')
-        password= os.environ.get('MASABI_PASS')
+        password = os.environ.get('MASABI_PASS')
         credentials = {
-            "username":username,
-            "password":password
+            "username": username,
+            "password": password
         }
         headers = {'Content-Type': 'application/json'}
-        token_request = requests.post("https://uat.justride.systems/auth-webapp/rest/v/1/VRTIDAHO/token", headers=headers, data=json.dumps(credentials))
+        token_request = requests.post(
+            "https://uat.justride.systems/auth-webapp/rest/v/1/VRTIDAHO/token",
+            headers=headers, data=json.dumps(credentials))
         token = token_request.json()['token']
 
         headers = {'Authorization': token,
                    'Content-Type': 'application/json'}
-
-        employees = Employee.query.filter(
-            Employee.employer_id == employer_id, Employee.success == False).all()
         for employee in employees:
             order_request = {
                 "userName": employee.email,
@@ -228,8 +233,8 @@ def issue_tickets(employer_id):
             }
             # create an order
             order = requests.post("https://uat.justride.systems/broker/api/v2/VRTIDAHO/externalorders",
-                                    headers=headers, data=json.dumps(order_request))
-                                    
+                                  headers=headers, data=json.dumps(order_request))
+
             if order.status_code == 200:
                 purchase_id = uuid.uuid4().hex
 
@@ -241,14 +246,27 @@ def issue_tickets(employer_id):
 
                 # issue a ticket
                 issued_ticket = requests.post("https://uat.justride.systems/broker/api/v2/VRTIDAHO/externalorders/" +
-                                order.json()['orderId'] + "/issue", headers=headers, data=json.dumps(issue_request))
+                                              order.json()['orderId'] + "/issue", headers=headers,
+                                              data=json.dumps(issue_request))
 
                 if issued_ticket.status_code == 200:
                     issue_date = datetime.utcnow()
-                    issue = Issued(issue_date, employee.id, employer_id)
+                    issue = Issued(issue_date, employee.id, employee.employer_id)
                     db.session.add(issue)
                     employee.success = True
+                else:
+                    insert_error(employee.id, issued_ticket.status_code)
+    except Exception as e:
+        print(e)
+        app.logger.error("An error({}) happened while pushing a ticket".format(e))
 
+
+def issue_employer_tickets(employer_id):
+    try:
+        employees = Employee.query.filter(
+            Employee.employer_id == employer_id, Employee.success == False).all()
+
+        push_tickets(employees)
         db.session.commit()
         return jsonify(employee_schema.dump(employees, many=True))
     except Exception as e:
@@ -266,7 +284,8 @@ def get_tickets(employer_id):
         print(e)
         abort(500, "an exception here is shameful")
 
-def get_reissue_list():
+
+def nightly_ticket_issue():
     """
     This is a method to get a list of all the employees that
     have either been unsuccessful or their issued ticket is
@@ -277,24 +296,11 @@ def get_reissue_list():
         reissue_list = db.session.query(Employee).join(Issued,
                                                        Employee.id == Issued.employee_id).filter(or_(
             Employee.success == False, Issued.issue_date < reissue_date))
+        push_tickets(reissue_list)
         return reissue_list
     except Exception as e:
         print(e)
         # TODO: this needs to be added to a log
-
-
-def push_nightly_tickets(need_issued_list):
-    """
-    Pushes the nightly tickets
-    """
-    for employee in need_issued_list:
-        try:
-            pass
-            #TODO: this is where all the code for the api will go.
-        except Exception as e:
-            print(e)
-            insert_error(employee.id, e)
-        # going to have to catch specific exceptions coming from masabi at later dates
 
 
 def insert_error(employee_id, error_message):
