@@ -22,6 +22,7 @@ def get_employers():
         return jsonify(output)
     except Exception as e:
         print(e)
+        app.logger.error("an error({}) occurred getting employers".format(e))
         abort(404, "Could not retrieve employers")
 
 
@@ -40,6 +41,7 @@ def create_employer(json):
         return jsonify(output)
     except Exception as e:
         print(e)
+        app.logger.error("an error({}) occurred creating employer with json {}".format(e, json))
         abort(400, "Could not create new employer")
     #   Get Specified Employer
 
@@ -51,6 +53,7 @@ def get_employer(id):
         return jsonify(output)
     except Exception as e:
         print(e)
+        app.logger.error("an error({}) occurred getting employer with id {}".format(e, id))
         abort(404, "Could not retrieve employer")
 
 
@@ -67,6 +70,7 @@ def update_employer(id, json):
         return jsonify(output)
     except Exception as e:
         print(e)
+        app.logger.error("an error({}) occurred updating employer with id {}".format(e, id))
         abort(404, "Could not update employer")
     #   Delete Specified Employer
 
@@ -79,6 +83,7 @@ def delete_employer(id):
         return jsonify({'message': 'Employer deleted'})
     except Exception as e:
         print(e)
+        app.logger.error("an error({}) occurred deleting employer with id {}".format(e, id))
         abort(404, "Could not delete employer")
 
 
@@ -98,6 +103,7 @@ def _get_employer_id(employer_email):
         return employer_id
     except Exception as e:
         print(e)
+        app.logger.error("an error({}) occurred finding employer with the name {}".format(e, employer_name))
         abort(404, 'employer not found')
 
 #-- Employee CRUD Operations
@@ -130,6 +136,7 @@ def create_employee(json):
         return jsonify(output)
     except Exception as e:
         print(e)
+        app.logger.error("an error({}) occurred creating employee with json {}".format(e, json))
         abort(400, "Could not create new employee")
 
     #   Return All Employees
@@ -142,6 +149,7 @@ def get_employees():
         return jsonify(output)
     except Exception as e:
         print(e)
+        app.logger.error("an error({}) occurred getting employees".format(e))
         abort(404, "Could not retrieve employees")
 
     #   Get Specified Employee
@@ -154,6 +162,7 @@ def get_employee(id):
         return jsonify(output)
     except Exception as e:
         print(e)
+        app.logger.error("an error({}) occurred getting employee with id {}".format(e, id))
         abort(404, "Could not retrieve employee")
 
 
@@ -165,6 +174,7 @@ def get_employer_employees(id):
         return jsonify(output)
     except Exception as e:
         print(e)
+        app.logger.error("an error({}) occurred deleting employees with employer id {}".format(e, id))
         abort(404, "Could not get employer's employees")
 
 
@@ -182,6 +192,7 @@ def update_employee(id, json):
         return jsonify(output)
     except Exception as e:
         print(e)
+        app.logger.error("an error({}) occurred updating employee with id {}".format(e, id))
         abort(404, "Could not update employee")
 
     #   Delete Specified Employee
@@ -195,6 +206,7 @@ def delete_employee(id):
         return jsonify({'message': 'Employee deleted'})
     except Exception as e:
         print(e)
+        app.logger.error("an error({}) occurred deleting employee with id {}".format(e, id))
         abort(404, "Could not delete employee")
 
 
@@ -248,11 +260,16 @@ def issue_tickets(employer_id):
                     issue = Issued(issue_date, employee.id, employer_id)
                     db.session.add(issue)
                     employee.success = True
+                else:
+                    app.logger.error("an error({}: {}) occurred issuing a ticket to {}({})".format(issued_ticket.json()['code'], issued_ticket.json()['message'], employee.name, employee.email))
+            else:
+                app.logger.error("an error({}: {}) occurred creating an order for {}({})".format(order.json()['code'], order.json()['message'], employee.name, employee.email))
 
         db.session.commit()
         return jsonify(employee_schema.dump(employees, many=True))
     except Exception as e:
         print(e)
+        app.logger.error("an error({}) occurred issuing tickets for employer {}".format(e, employer_id))
         abort(500, "how did we get here")
 
 
