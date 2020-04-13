@@ -207,6 +207,13 @@ out sick
 
 ##### - To Do
 
+- added content to recorded demo
+
+
+### WEEK 13
+
+##### - To Do
+
 - continue to learn AngularCLI
 - add features to data table (sorting, pagination, delete)
 
