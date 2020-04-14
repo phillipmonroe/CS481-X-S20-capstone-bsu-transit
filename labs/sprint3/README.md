@@ -11,7 +11,7 @@
 - angular auto builds tests
 
 ##### Garett 
-– completed the ORM application refactor
+- completed the ORM application refactor
 
 ##### Sean 
 - research and work done on scheduler
