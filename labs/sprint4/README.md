@@ -13,16 +13,16 @@
 - out sick
 
 ##### Garett 
-– installed the Docker legacy CLI 
+- installed the Docker legacy CLI 
 
 ##### Sean 
 - almost finished with my task of getting the nightly job to run
 
 ##### Phillip 
-– successfully sent http requests to masabi.
+- successfully sent http requests to masabi.
 
 ##### Trey 
-– Finished Auth Guard to protect access to pages
+- Finished Auth Guard to protect access to pages
 
 
 ### Current Tasks
