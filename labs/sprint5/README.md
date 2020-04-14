@@ -4,22 +4,22 @@
 - Finished city-go-admin front end
 	
 ##### Colin
--
+- 
 
 ##### Justin
 - finished employer view, minus data table features
 
 ##### Garett 
-– 
+-
 
 ##### Sean 
 - 
 
 ##### Phillip 
-– Obtained journeyIds
+- obtained journeyIds
 
 ##### Trey 
-– Set up visibility on front-end to only render appropriate components (Auth0)
+- set up visibility on front-end to only render appropriate components (Auth0)
 
 
 ### Current Tasks
