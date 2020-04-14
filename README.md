@@ -24,7 +24,7 @@ This repo contains all the course materials for CS481 - Senior Design.
 | 7    | Sprint 2                      | [Sprint 2](labs/sprint2)                | 2020-3-1                |
 | 8    | Sprint 3                      | [Sprint 3](labs/sprint3)                | 2020-3-8                |
 | 9    | Sprint 4                      | [Sprint 4](labs/sprint4)                | 2020-3-15               |
-| 10   | Team collaboration            | [poster pamphlet](labs/pamphlet)        | 2020-3-22               |
+| 10   | Sprint 5                      | [Sprint 5](labs/sprint5)                | 2020-3-22               |
 | 11   | Spring Break                  | Spring Break                            |                         |
 | 12   | Demo 1                        | [demo-1](labs/demo-1)                   | **Tuesday in class**    |
 | 13   | Planning 2                    | [planning-2](labs/planning-2)           | 2020-4-12               |
