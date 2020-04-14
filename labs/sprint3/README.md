@@ -21,7 +21,7 @@
 - made the backend much more module
 
 ##### Trey 
-– Researched capabilities of Auth0 for allowing permissions
+- Researched capabilities of Auth0 for allowing permissions
 - Researched user, roles, and permissions
 - Got sick so provided team update and documentation from research
 
