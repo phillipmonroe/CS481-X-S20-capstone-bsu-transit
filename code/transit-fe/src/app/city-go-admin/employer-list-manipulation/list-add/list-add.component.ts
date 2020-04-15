@@ -12,7 +12,7 @@ import { EmployerService } from '../../shared/employer.service';
 export class ListAddComponent {
   
   employers: Employer[] = [];
-  employer: Employer = { id: null, name: null, maxEmployees: null, description: null };
+  employer: Employer = { id: null, name: null, rider_cap: null, email: null };
 
   constructor(public dialog: MatDialog,private employerService: EmployerService) {
     this.employerService.employers$.subscribe(addEmployers => this.employers = addEmployers);
@@ -30,10 +30,10 @@ export class ListAddComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.employers.push(this.employer);
-      this.employerService.addEmployer(this.employers);
+      // this.employers.push(this.employer);
+      this.employerService.addEmployer(this.employer);
       result = null;
-      this.employer = { id: null, name: null, maxEmployees: null, description: null};
+      this.employer = { id: null, name: null, rider_cap: null, email: null};
     });
   }
 

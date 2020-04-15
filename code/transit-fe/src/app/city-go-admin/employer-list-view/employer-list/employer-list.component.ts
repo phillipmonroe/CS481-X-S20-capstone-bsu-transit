@@ -19,7 +19,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class EmployerListComponent implements OnInit {
 
   employers = new MatTableDataSource<Employer>();
-  displayedColumns: string[] = ["id", "name", "maxEmployees", "description"];
+  displayedColumns: string[] = ["id", "name", "rider_cap", "email"];
   columnsToDisplay: string[] = this.displayedColumns.slice();
   expandedEmployer: Employer | null;
 
