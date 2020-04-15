@@ -20,7 +20,7 @@ export class EmployeeListAddComponent {
   uploadedFiles: Array <File>;
 
   employees: Employee[] = [];
-  employee: Employee = { firstName: null, lastName: null, email: null};
+  employee: Employee = { "firstName": null, "lastName": null, "email": null};
 
   constructor(public dialog: MatDialog,
               private employeeService: EmployeeService,
@@ -70,7 +70,7 @@ export class EmployeeListAddComponent {
 
       this.employeeService.addEmployee(this.employees);
       result = null;
-      this.employee = { firstName: null, lastName: null, email: null};
+      this.employee = { "firstName" : null, "lastName" : null, "email" : null};
     });
   }
 }
