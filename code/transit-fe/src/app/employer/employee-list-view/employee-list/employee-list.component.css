@@ -49,3 +49,9 @@ tr.employer-row:not(.employer-expanded-row):active {
 .employer-description-attribution {
   opacity: 0.5;
 }
+
+.example-header {
+  min-height: 24px;
+  padding: 8px 14px 0;
+  
+}

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Employee } from '../../shared/employee.model';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { EmployeeService} from '../../shared/employee.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 
 @Component({
@@ -19,14 +21,29 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class EmployeeListComponent implements OnInit{
 
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
   employees = new MatTableDataSource<Employee>();
-  displayedColumns: string[] = ["firstName", "lastName", "email"];
+  displayedColumns: string[] = ["First Name", "Last Name", "Email"];
   columnsToDisplay: string[] = this.displayedColumns.slice();
   expandedEmployer: Employee | null;
 
   constructor(private employeeService: EmployeeService) {
     this.employeeService.employees$.subscribe(getEmployees => this.employees.data = getEmployees);
    }
+
+   ngAfterViewInit() {
+    this.employees.paginator = this.paginator;
+    this.employees.sort = this.sort;
+  }
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.employees.filter = filterValue;
+  }
 
   ngOnInit(): void {
   }
