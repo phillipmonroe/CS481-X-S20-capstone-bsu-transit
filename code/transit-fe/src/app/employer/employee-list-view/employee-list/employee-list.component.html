@@ -1,4 +1,11 @@
-<div class="mat-elevation-z8">
+<div class="example-header" >
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+  </mat-form-field>
+</div>
+
+
+<div class="mat-elevation-z18">
 <table mat-table [dataSource]="employees" class="center" matSort multiTemplateDataRows>
   <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
   <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column}} </th>
@@ -29,4 +36,7 @@
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="employer-detail-row"></tr>
 </table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
 </div>

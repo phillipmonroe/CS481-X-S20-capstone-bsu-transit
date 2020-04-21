@@ -82,5 +82,13 @@
  - Met with team to discuss progress (we can now issue tickets!)
  
 ## Week 12
+ - Lost track of which week this is so I'm gonna say April 13th? 
+ - Time doesn't exist anymore
+ - Started working on fix for employer's accessing admin page
+ - Worked on calling Auth0 endpoints from our backend(instead of frontend, mostly just research)
+ 
+## Week 13
+ - Finished fix for employer accessing admin
  - TODO
+ 
  

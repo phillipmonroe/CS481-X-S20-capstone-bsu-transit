@@ -14,6 +14,7 @@ def test_service():
 # GET   - returns all employers
 # POST  - creates a new employer with the request body data
 @app.route('/employers', methods=['GET', 'POST'])
+@requires_auth
 def employers():
     if request.method == 'GET':
         return get_employers()
@@ -77,7 +78,7 @@ def employees_id(id):
 # POST    - pushes out tickets to provided employer_id
 @app.route('/issue/<employer_id>', methods=['POST'])
 def issue(employer_id):
-    return issue_tickets(employer_id)
+    return issue_employer_tickets(employer_id)
 
 # GET    - pushes out tickets to provided employer_id
 @app.route('/issued/<employer_id>', methods=['GET'])
@@ -96,10 +97,6 @@ def issued(employer_id):
 # def test():
 #     return jsonify('test')
     
-@app.route('/exams', methods=['GET'])
-@requires_auth
-def add_exam():
-    return jsonify('test')
 
 @app.errorhandler(AuthError)
 def handle_auth_error(ex):

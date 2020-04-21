@@ -185,3 +185,37 @@ _What qualifies a rider for a purchase?  ..._
 - research testing and AngularCLI
 - made pages for add-employer and add-employee
 
+### WEEK 9
+
+##### - To Do
+
+out sick
+
+### WEEK 10
+
+##### - Spring Break
+
+### WEEK 11
+
+##### - To Do
+
+- continue to learn AngularCLI
+- add data table and input window for adding employees
+
+
+### WEEK 12
+
+##### - To Do
+
+- added content to recorded demo
+
+
+### WEEK 13
+
+##### - To Do
+
+- continue to learn AngularCLI
+- add features to data table (sorting, pagination, delete)
+
+
+
