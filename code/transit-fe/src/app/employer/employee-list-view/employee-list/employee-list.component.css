@@ -42,11 +42,11 @@ tr.employer-row:not(.employer-expanded-row):active {
   line-height: normal;
 }
 
-.employer-description {
+.employer-email {
   padding: 16px;
 }
 
-.employer-description-attribution {
+.employer-email-attribution {
   opacity: 0.5;
 }
 

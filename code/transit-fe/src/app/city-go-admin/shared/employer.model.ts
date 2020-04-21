@@ -1,6 +1,6 @@
 export interface Employer {
     id: number;
     name: string;
-    maxEmployees: number;
-    description: string;
+    rider_cap: number;
+    email: string;
 }

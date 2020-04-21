@@ -32,11 +32,11 @@ export class EmployerService {
   private employersUrl = 'http://127.0.0.1:5000/employers';
   private employers = new Subject<Employer[]>();
   employers$ = this.employers.asObservable();
-  test: Employer[] = [];
+  employerArray: Employer[] = [];
 
   initEmployers() {
-    // this.getEmployers().subscribe(result => {this.employers.next(result); result.forEach(key => this.test.push(key))});
-    this.getEmployers().subscribe(result => {this.employers.next(result); this.test = result});
+    // this.getEmployers().subscribe(result => {this.employers.next(result); result.forEach(key => this.employerArray.push(key))});
+    this.getEmployers().subscribe(result => {this.employers.next(result); this.employerArray = result});
 
     this.employers$ = this.employers.asObservable();
   }
@@ -58,9 +58,7 @@ export class EmployerService {
   }
 
   addEmployer (employer: Employer) {
-    this.test.push(employer);
-    this.employers.next(this.test);
-    // return this.http.post<Employer>(this.employersUrl, employer, this.httpOptions)
+    return this.http.post<Employer>(this.employersUrl, employer, this.httpOptions).subscribe(newEmployer => {this.employerArray.push(newEmployer); this.employers.next(this.employerArray);})
   }
 
   deleteEmployer (employer: Employer | number): Observable<Employer> {
