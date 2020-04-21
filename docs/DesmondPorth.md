@@ -96,3 +96,9 @@ Spring break.
 ## Week 11
 Assigned to work on backend security. Researching Python Flask JWT as a method to accomplish protecting the backend endpoints. Also need to look into using Auth0 in conjunction with JWT to protect backend endpoints. Also added fake data to city go admin view for our presentation/demo. We will be conducting a zoom meeting and recording it. Each of us will share screens and demo what we have worked on.
 
+## Week 12
+Continued to work on authorizing frontend request to backend using Auth0 authorization tokens. Have a test endpoint set up and I can sucessfully make calls to the endpoint only after logging into Auth0. Also met with Phillip and Colin to discuss hooking up the backend to the citygo admin frontend. Showed them where they should develop their code and how they can extract key value pairs from the json returned from the backend.
+
+## Week 13
+Finalized the Auth0 frontend backend authorization token and logic. Working on resolving merge conflicts. In addition, our team is working on a pass down for our work this semester. We are also creating a end of the semester poster and presentation.
+
