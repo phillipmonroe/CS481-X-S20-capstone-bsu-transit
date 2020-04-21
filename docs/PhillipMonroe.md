@@ -81,3 +81,16 @@ This week we decided to move forward with using an ORM for our database interact
 
 This week I was assigned to work on code to send http requests to masabi.
 
+## Week 10
+
+This week I was assigned to work on actually sending out tickets through masabi. We ran into a roadblock where we could not find journeyIds. So this task was put on hold and I was working on finding where we need to connect the front and backend
+
+## Week 11
+
+Spring break!
+Obtained journeyIds
+
+## Week 12
+
+This week I was assigned to hook up the backend with the front end along with Colin.
+

@@ -6,3 +6,6 @@ flask-marshmallow
 marshmallow-sqlalchemy
 pycryptodome
 python-jose
+flask-migrate
+requests
+simplejson

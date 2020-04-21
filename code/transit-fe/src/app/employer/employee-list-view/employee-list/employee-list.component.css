@@ -1,0 +1,51 @@
+table {
+    width: 100%;
+}
+
+.center {
+  margin: 0 auto;
+}
+  
+tr.employer-detail-row {
+  height: 0;
+}
+
+tr.employer-row:not(.employer-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.employer-row:not(.employer-expanded-row):active {
+  background: #efefef;
+}
+
+.employer-row td {
+  border-bottom-width: 0;
+}
+
+.employer-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.employer-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.employer-name{
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.employer-description {
+  padding: 16px;
+}
+
+.employer-description-attribution {
+  opacity: 0.5;
+}

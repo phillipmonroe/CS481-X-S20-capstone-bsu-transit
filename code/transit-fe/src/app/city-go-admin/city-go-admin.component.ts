@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
+import { EmployerService } from './shared/employer.service';
+
 @Component({
   selector: 'city-go-admin',
   templateUrl: './city-go-admin.component.html',
@@ -8,16 +10,11 @@ import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
 })
 export class CityGoAdminComponent implements OnInit {
   
-  constructor() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${Auth0Client.getAccessToken()}`
-      })
-    };
-    console.log(httpOptions);
+  constructor(private employerService: EmployerService) {
   }
-
+  
   ngOnInit() {
+    this.employerService.initEmployers();
   }
 
 }

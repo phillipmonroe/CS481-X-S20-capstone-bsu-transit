@@ -1,3 +1,7 @@
 .bottomSpacing {
     margin-bottom: 25px;
 }
+
+div.inline { 
+    float:left; 
+}

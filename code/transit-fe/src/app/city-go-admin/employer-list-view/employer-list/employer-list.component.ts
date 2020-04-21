@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Employer } from '../../shared/employer.model';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { EmployerService } from '../../shared/employer.service';
@@ -16,7 +16,7 @@ import { MatTableDataSource } from '@angular/material/table';
     ]),
   ],
 })
-export class EmployerListComponent {
+export class EmployerListComponent implements OnInit {
 
   employers = new MatTableDataSource<Employer>();
   displayedColumns: string[] = ["id", "name", "maxEmployees", "description"];
@@ -24,13 +24,11 @@ export class EmployerListComponent {
   expandedEmployer: Employer | null;
 
   constructor(private employerService: EmployerService) { 
-    this.employerService.employers$.subscribe(test => this.employers.data = test);
+    this.employerService.employers$.subscribe(getEmployers => this.employers.data = getEmployers);
   }
 
   ngOnInit(): void {
-  
+    
   }
-
-  
 
 }

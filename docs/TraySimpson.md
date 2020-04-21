@@ -76,4 +76,11 @@
  - Finished Auth Guard to protect access to pages
  - Met with team over Zoom to discuss next sprint/progress
  
+## Week 11
+ - Set up visibility on front-end to only render appropriate components (Auth0)
+ - Recorded and submitted project demo
+ - Met with team to discuss progress (we can now issue tickets!)
+ 
+## Week 12
+ - TODO
  

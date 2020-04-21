@@ -2,9 +2,7 @@ import { Component, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ListAddDialogComponent } from './list-add-dialog/list-add-dialog.component';
 import { Employer } from '../../shared/employer.model';
-
 import { EmployerService } from '../../shared/employer.service';
-import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'admin-list-add',
@@ -13,10 +11,12 @@ import { EventEmitter } from 'protractor';
 })
 export class ListAddComponent {
   
-  employers: Employer[] = []
-  employer: Employer = { id: null, name: null, maxEmployees: null, description: null};
+  employers: Employer[] = [];
+  employer: Employer = { id: null, name: null, maxEmployees: null, description: null };
 
-  constructor(public dialog: MatDialog,private employerService: EmployerService) {}
+  constructor(public dialog: MatDialog,private employerService: EmployerService) {
+    this.employerService.employers$.subscribe(addEmployers => this.employers = addEmployers);
+  }
 
   ngOnInit(): void {
     
@@ -30,9 +30,8 @@ export class ListAddComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.employers.push(this.employer);
-      result=this.employers;
-      this.employerService.addEmployer(this.employers);
+      // this.employers.push(this.employer);
+      this.employerService.addEmployer(this.employer);
       result = null;
       this.employer = { id: null, name: null, maxEmployees: null, description: null};
     });

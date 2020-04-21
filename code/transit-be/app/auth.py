@@ -85,7 +85,6 @@ def requires_auth(f):
                     'code': 'token_expired',
                     'description': 'Token expired.'
                 }, 401)
-
             except jwt.JWTClaimsError:
                 raise AuthError({
                     'code': 'invalid_claims',
