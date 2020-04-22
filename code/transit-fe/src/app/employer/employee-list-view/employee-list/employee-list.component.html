@@ -17,8 +17,7 @@
           <div class="employer-detail"
                [@detailExpand]="employees == expandedEmployer ? 'expanded' : 'collapsed'">
             <div class="employer-diagram">
-              <div>  First Name: {{employees.firstName}} </div>
-              <div> Last Name : {{employees.lastName}} </div>
+              <div>  Name: {{employees.name}} </div>
             </div>
             <div class="employer-email">
               {{employees.email}}

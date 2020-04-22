@@ -20,7 +20,7 @@ export class EmployeeListAddComponent {
   uploadedFiles: Array <File>;
 
   employees: Employee[] = [];
-  employee: Employee = { "firstName": null, "lastName": null, "email": null};
+  employee: Employee = { "id": null, "name": null, "email": null, "employer_id": null, "success": null };
 
   constructor(public dialog: MatDialog,
               private employeeService: EmployeeService,
@@ -65,12 +65,9 @@ export class EmployeeListAddComponent {
 
     dialogRef.afterClosed().subscribe(result => {
 
-      this.employees.push(this.employee);
-
-
-      this.employeeService.addEmployee(this.employees);
+      this.employeeService.addEmployee(this.employee);
       result = null;
-      this.employee = { "firstName" : null, "lastName" : null, "email" : null};
+      this.employee = { "id": null, "name": null, "email": null, "employer_id": null, "success": null };
     });
   }
 }
