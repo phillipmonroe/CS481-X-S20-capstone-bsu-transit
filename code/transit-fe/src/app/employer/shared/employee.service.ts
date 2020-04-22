@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { Employee } from './employee.model';
-import { EMPLOYEES } from './mock-employees';
-
 
 import { Observable, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -18,6 +16,9 @@ export class EmployeeService {
  
 
   initEmployees(){
+    //getEmployees() currently returns all employees of all employers. 
+    //Backend should be modified to only return employees of the logged in Employer who made this request. 
+    //Admins should have another endpoint where they provide an Employer.Id in order to see employees of that Employer.
     this.getEmployees().subscribe(result => {this.employees.next(result); this.employeeArray = result});
 
     this.employees$ = this.employees.asObservable();
@@ -41,6 +42,9 @@ export class EmployeeService {
 
 
   addEmployee(employee: Employee) {
+    //We shouldn't need to send an employer id once we can find out who is sending this "add_employee" request from whoever is logged in
+    //We might want to have two routes, one for Admins to use which can specify which Employer to add this Employee to, but typically 
+    //if it's an Employer account adding an Employee it should go to the logged in account's Employee list
     employee.employer_id = 1;
     employee.success = false;
     return this.http.post<Employee>(this.employeesUrl, employee, this.httpOptions).subscribe(newEmployee => {this.employeeArray.push(newEmployee); this.employees.next(this.employeeArray);})
