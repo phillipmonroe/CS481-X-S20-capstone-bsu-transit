@@ -26,7 +26,7 @@ export class EmployeeListComponent implements OnInit{
   @ViewChild(MatSort) sort: MatSort;
 
   employees = new MatTableDataSource<Employee>();
-  displayedColumns: string[] = ["firstName", "lastName", "email"];
+  displayedColumns: string[] = ["name", "email"];
   columnsToDisplay: string[] = this.displayedColumns.slice();
   expandedEmployer: Employee | null;
 

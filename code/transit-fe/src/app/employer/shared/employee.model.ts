@@ -1,5 +1,7 @@
 export interface Employee {
-    "firstName" : string;
-    "lastName" : string;
+    "id" : number;
+    "name" : string;
     "email" : string;
+    "employer_id" : number;
+    "success" : boolean;
 }
