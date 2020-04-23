@@ -25,6 +25,20 @@ def get_employers():
         app.logger.error("an error({}) occurred getting employers".format(e))
         abort(404, "Could not retrieve employers")
 
+#   Add New Admin
+def create_admin(json):
+    try:
+        name = json['name']
+        email = json['email']
+        admin = Admin(name,email)
+        db.session.add(admin)
+        db.session.commit()
+        output = admin_schema.dump(admin)
+        return jsonify(output)
+    except Exception as e:
+        print(e)
+        app.logger.error("an error({}) occurred creating admin with json {}".format(e, json))
+        abort(400, "Could not create new admin")
 
 #   Add New Employer
 def create_employer(json):
