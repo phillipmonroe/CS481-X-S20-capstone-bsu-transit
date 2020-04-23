@@ -32,4 +32,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - CSS 
 - Delete functionality added to "Employer View" data table
 - Column headers need updated to match database entries
+- Add pointer to nightly script using jenkins or kronjob after the application has been deployed.
 
