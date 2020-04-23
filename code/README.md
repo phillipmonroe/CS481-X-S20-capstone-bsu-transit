@@ -1,6 +1,8 @@
 # City Go Transit Application
 
-The purpose of this application is to allow City Go Administrators and City Go Clients the ability to manage transit benefits for qualified employees.
+## Executive Summary
+
+The purpose of this application is to allow City Go Administrators and City Go Clients the ability to manage transit benefits for qualified employees. Employers will be able to add employees to the application by either uploading from a CSV file or a single entry. Once these employees are in the system, the application will attempt to push out a 31 day pass every month to employees, based on their email address. We assume that employees have already created a CityGo account with their provided work email. Admins have the added ability of managing other admins, employers, and employees.
 
 ## Application Architecture Overview
 --TODO--
