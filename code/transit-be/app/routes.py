@@ -1,5 +1,4 @@
 from flask import Flask, request, Response, jsonify, abort
-# from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_required, jwt_refresh_token_required, get_jwt_identity, get_raw_jwt)
 from flask import current_app as app
 from .functions import *
 from .auth import AuthError, requires_auth
@@ -23,6 +22,7 @@ def employers():
 
 
 @app.route('/upload', methods=['POST'])
+@requires_auth
 def add_csv():
     """
     This is a method to get the csv file and the employer name from the
@@ -41,6 +41,7 @@ def add_csv():
 # PUT       - updates employer with id == {id}
 # DELETE    - removes employer with id == {id}
 @app.route('/employers/<id>', methods=['GET', 'PUT', 'DELETE'])
+@requires_auth
 def employers_id(id):
     if request.method == 'GET':
         return get_employer(id)
@@ -51,12 +52,14 @@ def employers_id(id):
 
 # GET       - returns employees with employer_id == <id>
 @app.route('/employers/<id>/employees', methods=['GET'])
+@requires_auth
 def employer_employees(id):
     return get_employer_employees(id)
 
 # GET       - returns all employees
 # POST      - creates a new employee with the request body data
 @app.route('/employees', methods=['GET', 'POST'])
+@requires_auth
 def employees():
     if request.method == 'GET':
         return get_employees()
@@ -67,6 +70,7 @@ def employees():
 # PUT       - updates employee with id == <id>
 # DELETE    - removes employee with id == <id>
 @app.route('/employees/<id>', methods=['GET', 'PUT', 'DELETE'])
+@requires_auth
 def employees_id(id):
     if request.method == 'GET':
         return get_employee(id)
@@ -77,26 +81,15 @@ def employees_id(id):
 
 # POST    - pushes out tickets to provided employer_id
 @app.route('/issue/<employer_id>', methods=['POST'])
+@requires_auth
 def issue(employer_id):
     return issue_employer_tickets(employer_id)
 
 # GET    - pushes out tickets to provided employer_id
 @app.route('/issued/<employer_id>', methods=['GET'])
+@requires_auth
 def issued(employer_id):
-    return get_tickets(employer_id)
-
-# @app.route('/authorize/token', methods=['POST'])
-# def get_token():
-#     username = request.get_json()['username']
-#     access_token = create_access_token(identity=username)
-#     return jsonify(access_token)
-
-
-# @app.route('/test', methods=['GET'])
-# @jwt_required
-# def test():
-#     return jsonify('test')
-    
+    return get_tickets(employer_id) 
 
 @app.errorhandler(AuthError)
 def handle_auth_error(ex):

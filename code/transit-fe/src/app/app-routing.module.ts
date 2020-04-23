@@ -8,7 +8,6 @@ import { AddEmployerComponent } from './add-employer/add-employer.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './interceptor.service';
-import { ExternalApiComponent } from './external-api/external-api.component';
 
 /**
  * --Add Component Paths Here--
@@ -18,12 +17,7 @@ const routes: Routes = [
   {path: 'employer', component: EmployerComponent, canActivate: [AuthGuard] },
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'add-employer', component: AddEmployerComponent, canActivate: [AuthGuard]},
-  {path: 'add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard]},
-  {
-    path: 'external-api',
-    component: ExternalApiComponent,
-    canActivate: [AuthGuard]
-  }
+  {path: 'add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

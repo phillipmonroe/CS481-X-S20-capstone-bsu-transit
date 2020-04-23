@@ -13,9 +13,9 @@ import { AuthService } from '../auth.service';
 export class CityGoAdminComponent implements OnInit {
 
   constructor(private employerService: EmployerService,private router: Router,private auth: AuthService) {
-    if(auth.userProfile$.source['_value']['https://any-namespace/roles'] != 'admin'){
-      this.router.navigate(['employer']);
-    }
+    // if(auth.userProfile$.source['_value']['https://any-namespace/roles'] != 'admin'){
+    //   this.router.navigate(['employer']);
+    // }
   }
   ngOnInit() {
     this.employerService.initEmployers();

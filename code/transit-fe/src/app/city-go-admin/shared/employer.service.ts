@@ -1,23 +1,3 @@
-// import { Injectable } from '@angular/core';
-// import { Employer } from './employer.model';
-// import { Subject } from 'rxjs';
-// import { EMPLOYERS } from './mock-employers';
-// @Injectable()
-// export class EmployerService {
-  
-//   private employers = new Subject<Employer[]>();
-//   employers$ = this.employers.asObservable();
-
-//   initEmployers() {
-//     this.employers.next(EMPLOYERS);
-//     this.employers$ = this.employers.asObservable();
-//   }
-  
-//   addEmployer(employer: Employer[]) {
-//     this.employers.next(employer);
-//   }
-// }
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -34,8 +14,10 @@ export class EmployerService {
   employers$ = this.employers.asObservable();
   employerArray: Employer[] = [];
 
+  constructor(
+    private http: HttpClient) { }
+
   initEmployers() {
-    // this.getEmployers().subscribe(result => {this.employers.next(result); result.forEach(key => this.employerArray.push(key))});
     this.getEmployers().subscribe(result => {this.employers.next(result); this.employerArray = result});
 
     this.employers$ = this.employers.asObservable();
@@ -45,8 +27,6 @@ export class EmployerService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(
-    private http: HttpClient) { }
 
   getEmployers (): Observable<Employer[]> {
     return this.http.get<Employer[]>(this.employersUrl)
