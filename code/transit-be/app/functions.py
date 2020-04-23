@@ -3,7 +3,6 @@ from sqlalchemy import or_
 from datetime import datetime, timedelta
 import simplejson as json
 from flask import current_app as app
-import csv
 import uuid
 import os
 
@@ -197,7 +196,7 @@ def _get_employer_id(employer_email):
     except Exception as e:
         print(e)
         app.logger.error(
-            "an error({}) occurred finding employer with the name {}".format(e, employer_name))
+            "an error({}) occurred finding employer with the name {}".format(e, employer_email))
         abort(404, 'employer not found')
 
 
@@ -493,12 +492,12 @@ def nightly_ticket_issue():
         reissue_date = datetime.utcnow() - timedelta(days=31)
         reissue_list = db.session.query(Employee).join(Issued,
                                                        Employee.id == Issued.employee_id).filter(or_(
-                                                           Employee.success == False, Issued.issue_date < reissue_date))
+            Employee.success == False, Issued.issue_date < reissue_date)).all()
         push_tickets(reissue_list)
         return reissue_list
     except Exception as e:
         print(e)
-        # TODO: this needs to be added to a log
+        app.logger.error("An error happened while gathering the list of employees needing tickets")
 
 
 def insert_error(employee_id, error_message):
