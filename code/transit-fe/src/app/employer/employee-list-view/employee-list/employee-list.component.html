@@ -1,4 +1,4 @@
-<div class="example-header" >
+<div class="example-header">
   <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
   </mat-form-field>
@@ -6,36 +6,34 @@
 
 
 <div class="mat-elevation-z18">
-<table mat-table [dataSource]="employees" class="center" matSort multiTemplateDataRows>
-  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-  <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column}} </th>
-  <td mat-cell *matCellDef="let employees"> {{employees[column]}} </td>
-</ng-container>
+  <table mat-table [dataSource]="employees" class="center" matSort multiTemplateDataRows>
+    <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column}} </th>
+      <td mat-cell *matCellDef="let employees"> {{employees[column]}} </td>
+    </ng-container>
 
-      <ng-container matColumnDef="expandedDetail">
-        <td mat-cell *matCellDef="let employees" [attr.colspan]="displayedColumns.length">
-          <div class="employer-detail"
-               [@detailExpand]="employees == expandedEmployer ? 'expanded' : 'collapsed'">
-            <div class="employer-diagram">
-              <div>  Name: {{employees.name}} </div>
-            </div>
-            <div class="employer-email">
-              {{employees.email}}
-              <span class="employer-email-attribution"> -- Email </span>
-            </div>
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let employees" [attr.colspan]="displayedColumns.length">
+        <div class="employer-detail" [@detailExpand]="employees == expandedEmployer ? 'expanded' : 'collapsed'">
+          <div class="employer-diagram">
+            <div> Name: {{employees.name}} </div>
           </div>
-        </td>
-      </ng-container>
+          <div class="employer-email">
+            {{employees.email}}
+            <span class="employer-email-attribution"> -- Email </span>
+          </div>
+        </div>
+      </td>
+    </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let employees; columns: displayedColumns;"
-      class="employer-row"
+    <tr mat-row *matRowDef="let employees; columns: displayedColumns;" class="employer-row"
       [class.employer-expanded-row]="expandedEmployer === employees"
       (click)="expandedEmployer = expandedEmployer === employees ? null : employees">
-  </tr>
-  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="employer-detail-row"></tr>
-</table>
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="employer-detail-row"></tr>
+  </table>
 
-<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 
 </div>

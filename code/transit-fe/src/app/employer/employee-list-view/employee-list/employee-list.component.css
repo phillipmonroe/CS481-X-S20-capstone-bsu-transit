@@ -1,11 +1,11 @@
 table {
-    width: 100%;
+  width: 100%;
 }
 
 .center {
   margin: 0 auto;
 }
-  
+
 tr.employer-detail-row {
   height: 0;
 }
@@ -36,7 +36,7 @@ tr.employer-row:not(.employer-expanded-row):active {
   height: 104px;
 }
 
-.employer-name{
+.employer-name {
   font-weight: bold;
   font-size: 40px;
   line-height: normal;
@@ -53,5 +53,4 @@ tr.employer-row:not(.employer-expanded-row):active {
 .example-header {
   min-height: 24px;
   padding: 8px 14px 0;
-  
 }

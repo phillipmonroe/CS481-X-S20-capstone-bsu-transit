@@ -13,11 +13,11 @@ export class AddEmployerComponent implements OnInit {
   }
 
 
-  submit_onClick(){
-  console.log('hello, submit button works')
+  submit_onClick() {
+    console.log('hello, submit button works')
   }
-  clear_onClick(){
-  console.log('hello, clear button works')
+  clear_onClick() {
+    console.log('hello, clear button works')
   }
 
 }

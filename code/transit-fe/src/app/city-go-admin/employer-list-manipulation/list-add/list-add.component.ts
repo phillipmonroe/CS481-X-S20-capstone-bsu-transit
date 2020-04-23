@@ -10,18 +10,18 @@ import { EmployerService } from '../../shared/employer.service';
   styleUrls: ['./list-add.component.css']
 })
 export class ListAddComponent {
-  
+
   employers: Employer[] = [];
   employer: Employer = { id: null, name: null, rider_cap: null, email: null };
 
-  constructor(public dialog: MatDialog,private employerService: EmployerService) {
+  constructor(public dialog: MatDialog, private employerService: EmployerService) {
     this.employerService.employers$.subscribe(addEmployers => this.employers = addEmployers);
   }
 
   ngOnInit(): void {
-    
+
   }
-  
+
   openDialog(): void {
     const dialogRef = this.dialog.open(ListAddDialogComponent, {
       width: '250px',
@@ -29,11 +29,9 @@ export class ListAddComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // this.employers.push(this.employer);
       this.employerService.addEmployer(this.employer);
       result = null;
-      this.employer = { id: null, name: null, rider_cap: null, email: null};
+      this.employer = { id: null, name: null, rider_cap: null, email: null };
     });
   }
 

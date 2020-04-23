@@ -1,19 +1,24 @@
-
 <h1 mat-dialog-title>Adding Employee</h1>
-  <table class="example-full-width" cellspacing="0"><tr>
-    <td><mat-form-field class="example-full-width">
-      <mat-label>Name</mat-label>
-      <input matInput [(ngModel)]="data.name">
-    </mat-form-field></td>
-  </tr></table>
+<table class="example-full-width" cellspacing="0">
+  <tr>
+    <td>
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="data.name">
+      </mat-form-field>
+    </td>
+  </tr>
+</table>
 
-  <table class="example-full-width" cellspacing="0"><tr>
+<table class="example-full-width" cellspacing="0">
+  <tr>
     <mat-form-field class="example-full-width">
       <mat-label>Email Address</mat-label>
       <input matInput [(ngModel)]="data.email" placeholder="Ex. name@mail.com">
     </mat-form-field>
-  </tr></table>
-  <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Exit</button>
-    <button mat-button [matDialogClose] cdkFocusInitial>Add</button>
-  </div>
+  </tr>
+</table>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Exit</button>
+  <button mat-button [matDialogClose] cdkFocusInitial>Add</button>
+</div>

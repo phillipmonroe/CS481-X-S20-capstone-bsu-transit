@@ -1,14 +1,12 @@
 <h1 mat-dialog-title>Adding Employer</h1>
 <div mat-dialog-content>
   <p>Complete the employer fields</p>
-    <label>Employer ID</label>
-    <input matInput [(ngModel)]="data.id">
-    <label>Employer Name</label>
-    <input matInput [(ngModel)]="data.name">
-    <label>Employer Rider Cap</label>
-    <input matInput [(ngModel)]="data.rider_cap">
-    <label>Employer Email</label>
-    <input matInput [(ngModel)]="data.email">
+  <label>Employer Name</label>
+  <input matInput [(ngModel)]="data.name">
+  <label>Employer Rider Cap</label>
+  <input matInput [(ngModel)]="data.rider_cap">
+  <label>Employer Email</label>
+  <input matInput [(ngModel)]="data.email">
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Exit</button>

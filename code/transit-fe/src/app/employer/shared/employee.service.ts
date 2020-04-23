@@ -13,13 +13,13 @@ export class EmployeeService {
   employees$ = this.employees.asObservable();
   employeeArray: Employee[] = [];
 
- 
 
-  initEmployees(){
+
+  initEmployees() {
     //getEmployees() currently returns all employees of all employers. 
     //Backend should be modified to only return employees of the logged in Employer who made this request. 
     //Admins should have another endpoint where they provide an Employer.Id in order to see employees of that Employer.
-    this.getEmployees().subscribe(result => {this.employees.next(result); this.employeeArray = result});
+    this.getEmployees().subscribe(result => { this.employees.next(result); this.employeeArray = result });
 
     this.employees$ = this.employees.asObservable();
   }
@@ -31,7 +31,7 @@ export class EmployeeService {
   constructor(
     private http: HttpClient) { }
 
-  getEmployees (): Observable<Employee[]> {
+  getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.employeesUrl)
   }
 
@@ -47,17 +47,17 @@ export class EmployeeService {
     //if it's an Employer account adding an Employee it should go to the logged in account's Employee list
     employee.employer_id = 1;
     employee.success = false;
-    return this.http.post<Employee>(this.employeesUrl, employee, this.httpOptions).subscribe(newEmployee => {this.employeeArray.push(newEmployee); this.employees.next(this.employeeArray);})
+    return this.http.post<Employee>(this.employeesUrl, employee, this.httpOptions).subscribe(newEmployee => { this.employeeArray.push(newEmployee); this.employees.next(this.employeeArray); })
   }
 
-  deleteEmployee (employee: Employee | number): Observable<Employee> {
+  deleteEmployee(employee: Employee | number): Observable<Employee> {
     const id = typeof employee === 'number' ? employee : employee.id;
     const url = `${this.employeesUrl}/${id}`;
 
     return this.http.delete<Employee>(url, this.httpOptions)
   }
 
-  updateEmployee (employee: Employee): Observable<any> {
+  updateEmployee(employee: Employee): Observable<any> {
     const id = typeof employee === 'number' ? employee : employee.id;
     const url = `${this.employeesUrl}/${id}`;
     return this.http.put(url, employee, this.httpOptions)

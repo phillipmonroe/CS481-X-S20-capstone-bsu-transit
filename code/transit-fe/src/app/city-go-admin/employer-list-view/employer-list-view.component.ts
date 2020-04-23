@@ -7,7 +7,7 @@ import { EmployerService } from '../shared/employer.service';
   styleUrls: ['./employer-list-view.component.css']
 })
 export class EmployerListViewComponent {
-  
+
   constructor() { }
 
   ngOnInit() {

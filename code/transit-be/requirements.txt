@@ -1,5 +1,8 @@
 Flask
-mysqlclient-1.4.6-cp38-cp38-win32.whl #REQUIRED client for flask_mysqldb
+# REQUIRED client for flask_mysqldb
+# We were only able to find the below from https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient
+# Download the right one for your system
+# mysqlclient-1.4.6-cp38-cp38-win32.whl 
 flask_mysqldb
 flask_sqlalchemy
 flask_cors
