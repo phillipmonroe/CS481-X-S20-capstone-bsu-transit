@@ -8,9 +8,9 @@ describe('EmployerListManipulationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmployerListManipulationComponent ]
+      declarations: [EmployerListManipulationComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

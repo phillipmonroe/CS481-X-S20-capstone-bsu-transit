@@ -12,15 +12,15 @@ export class AddEmployeeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit_employee_onClick(){
+  submit_employee_onClick() {
     console.log('hello, submit employee button works')
-    }
+  }
 
-  submit_bulk_onClick(){
+  submit_bulk_onClick() {
     console.log('hello, submit bulk button works')
-    }
-    clear_onClick(){
+  }
+  clear_onClick() {
     console.log('hello, clear button works')
-    }
+  }
 
 }

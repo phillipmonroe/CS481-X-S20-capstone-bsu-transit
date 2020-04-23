@@ -10,8 +10,8 @@ class Employer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=False, unique=False, nullable=False)
     email = db.Column(db.String(80), index=True, unique=True, nullable=False)
-    rider_cap = db.Column(db.Integer, index=False, unique=False, nullable=False)
-
+    rider_cap = db.Column(db.Integer, index=False,
+                          unique=False, nullable=False)
 
     employees = db.relationship('Employee', backref='employer', lazy=True)
     employees = db.relationship('Employee', backref='employers', lazy=True)
@@ -55,7 +55,7 @@ class Employee(db.Model):
 
     def __repr__(self):
         return '<Employee {}>'.format(self.name)
-    
+
     def __init__(self, name, email, employer_id, success):
         self.name = name
         self.email = email
@@ -68,13 +68,14 @@ class Issued(db.Model):
 
     __tablename__ = 'issued'
     issued_id = db.Column(db.Integer, primary_key=True)
-    issue_date = db.Column(db.DateTime(), index=False, unique=False, nullable=False)
+    issue_date = db.Column(db.DateTime(), index=False,
+                           unique=False, nullable=False)
     employee_id = db.Column(db.Integer, db.ForeignKey('employees.id'))
     employer_id = db.Column(db.Integer, db.ForeignKey('employers.id'))
 
     def __repr__(self):
         return '<Issued {}>'.format(self.issued_id)
-    
+
     def __init__(self, issued_date, employee_id, employer_id):
         self.issue_date = issued_date
         self.employee_id = employee_id
@@ -88,7 +89,8 @@ class Error(db.Model):
 
     __tablename__ = 'error'
     error_id = db.Column(db.Integer, primary_key=True)
-    error_message = db.Column(db.String(256), index=False, unique=False, nullable=False)
+    error_message = db.Column(
+        db.String(256), index=False, unique=False, nullable=False)
     employee_id = db.Column(db.Integer, db.ForeignKey('employees.id'))
 
     def __repr__(self):
@@ -98,14 +100,18 @@ class Error(db.Model):
         self.error_message = error_message
         self.employee_id = employee_id
 
+
 class EmployerSchema(ma.ModelSchema):
     class Meta:
         fields = ("id", "name", "email", "rider_cap")
+
+
 employer_schema = EmployerSchema()
 
 class AdminSchema(ma.ModelSchema):
     class Meta:
         fields = ("id", "name", "email")
+        
 admin_schema = AdminSchema()
 
 class EmployeeSchema(ma.ModelSchema):
@@ -129,6 +135,7 @@ class ErrorSchema(ma.ModelSchema):
     Class to serilaize the error schema to send to the front end
     from the backend.
     """
+
     class Meta:
         fields = ("error_id", "error_message", "employee_id")
 

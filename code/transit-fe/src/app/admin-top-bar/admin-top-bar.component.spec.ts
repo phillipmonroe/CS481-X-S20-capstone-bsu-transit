@@ -8,9 +8,9 @@ describe('AdminTopBarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminTopBarComponent ]
+      declarations: [AdminTopBarComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

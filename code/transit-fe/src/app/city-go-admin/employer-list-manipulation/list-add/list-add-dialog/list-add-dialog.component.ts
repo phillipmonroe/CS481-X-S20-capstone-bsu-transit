@@ -12,7 +12,7 @@ export class ListAddDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<ListAddDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Employer) {}
+    @Inject(MAT_DIALOG_DATA) public data: Employer) { }
 
 
   onNoClick(): void {

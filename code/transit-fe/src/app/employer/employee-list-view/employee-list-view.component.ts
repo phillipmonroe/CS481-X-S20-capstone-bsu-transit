@@ -11,7 +11,7 @@ export class EmployeeListViewComponent {
 
   constructor() { }
 
-  ngOnInit(){
+  ngOnInit() {
   }
 
 }
