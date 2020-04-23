@@ -25,6 +25,21 @@ class Employer(db.Model):
         self.email = email
         self.rider_cap = rider_cap
 
+class Admin(db.Model):
+    """Model for Admin"""
+
+    __tablename__ = 'admin'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), index=False, unique=False, nullable=False)
+    email = db.Column(db.String(80), index=True, unique=True, nullable=False)
+
+
+    def __repr__(self):
+        return '<Admin {}>'.format(self.name)
+
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
 
 class Employee(db.Model):
     """Model for Employees"""
@@ -93,6 +108,11 @@ class EmployerSchema(ma.ModelSchema):
 
 employer_schema = EmployerSchema()
 
+class AdminSchema(ma.ModelSchema):
+    class Meta:
+        fields = ("id", "name", "email")
+        
+admin_schema = AdminSchema()
 
 class EmployeeSchema(ma.ModelSchema):
     class Meta:
