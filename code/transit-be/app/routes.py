@@ -12,16 +12,7 @@ def test_service():
 
     return "Transit backend service is running."
 
-# GET   - returns all employers
-# POST  - creates a new employer with the request body data
-@app.route('/employers', methods=['GET', 'POST'])
-@requires_auth
-def employers():
-    if request.method == 'GET':
-        return get_employers()
-    elif request.method == 'POST':
-        return create_employer(request.get_json())
-        
+
 @app.route('/upload', methods=['POST'])
 @requires_auth
 def add_csv():
@@ -40,6 +31,7 @@ def add_csv():
 
 
 @app.route('/employers', methods=['GET', 'POST'])
+@requires_auth
 def employers():
     """
     GET   - returns all employers
