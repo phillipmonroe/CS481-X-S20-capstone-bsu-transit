@@ -3,9 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
 from flask_cors import CORS
-
-app = Flask(__name__)
-
 import logging
 
 db = SQLAlchemy()
@@ -16,7 +13,7 @@ logging.basicConfig(filename='logging.log', level='DEBUG')
 def create_app():
     """Construct the core application."""
     app = Flask(__name__, instance_relative_config=False)
-    CORS(app)
+    cors = CORS(app)
     app.config.from_object('config.Config')
     # app.config['JWT_SECRET_KEY'] = 'jwt-transit-project-key'
     db.init_app(app)

@@ -7,11 +7,11 @@ import { Employee } from '../../../shared/employee.model';
   templateUrl: './employee-list-add-dialog.component.html',
   styleUrls: ['./employee-list-add-dialog.component.css']
 })
-export class EmployeeListAddDialogComponent{
+export class EmployeeListAddDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<EmployeeListAddDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Employee) {}
+    @Inject(MAT_DIALOG_DATA) public data: Employee) { }
 
 
   onNoClick(): void {

@@ -8,9 +8,9 @@ describe('CityGoAdminComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CityGoAdminComponent ]
+      declarations: [CityGoAdminComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

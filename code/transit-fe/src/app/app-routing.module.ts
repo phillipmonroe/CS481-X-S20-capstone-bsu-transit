@@ -13,11 +13,11 @@ import { InterceptorService } from './interceptor.service';
  * --Add Component Paths Here--
  */
 const routes: Routes = [
-  {path: 'city-go-admin', component: CityGoAdminComponent, canActivate: [AuthGuard] },
-  {path: 'employer', component: EmployerComponent, canActivate: [AuthGuard] },
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
-  {path: 'add-employer', component: AddEmployerComponent, canActivate: [AuthGuard]},
-  {path: 'add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard]}
+  { path: 'city-go-admin', component: CityGoAdminComponent, canActivate: [AuthGuard] },
+  { path: 'employer', component: EmployerComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'add-employer', component: AddEmployerComponent, canActivate: [AuthGuard] },
+  { path: 'add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
