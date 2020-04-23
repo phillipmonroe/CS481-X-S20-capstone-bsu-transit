@@ -1,6 +1,7 @@
-from flask import request
+from flask import Flask, request, Response, jsonify, abort
 from flask import current_app as app
 from .functions import *
+from .auth import AuthError, requires_auth
 
 
 @app.route('/')
@@ -13,6 +14,7 @@ def test_service():
 
 
 @app.route('/upload', methods=['POST'])
+@requires_auth
 def add_csv():
     """
     This is a method to get the csv file and the employer name from the
@@ -29,6 +31,7 @@ def add_csv():
 
 
 @app.route('/employers', methods=['GET', 'POST'])
+@requires_auth
 def employers():
     """
     GET   - returns all employers
@@ -42,6 +45,7 @@ def employers():
 
 
 @app.route('/employers/<id>', methods=['GET', 'PUT', 'DELETE'])
+@requires_auth
 def employers_id(id):
     """
     GET       - returns employer with id == <id>
@@ -58,6 +62,7 @@ def employers_id(id):
 
 
 @app.route('/employers/<id>/employees', methods=['GET'])
+@requires_auth
 def employer_employees(id):
     """
     GET       - returns employees with employer_id == <id>
@@ -67,6 +72,7 @@ def employer_employees(id):
 
 
 @app.route('/employees', methods=['GET', 'POST'])
+@requires_auth
 def employees():
     """
     GET       - returns all employees
@@ -80,6 +86,7 @@ def employees():
 
 
 @app.route('/employees/<id>', methods=['GET', 'PUT', 'DELETE'])
+@requires_auth
 def employees_id(id):
     """
     GET       - returns employee with id == <id>
@@ -96,6 +103,7 @@ def employees_id(id):
 
 
 @app.route('/issue/<employer_id>', methods=['POST'])
+@requires_auth
 def issue(employer_id):
     """
     POST    - pushes out tickets to provided employer_id
@@ -105,9 +113,17 @@ def issue(employer_id):
 
 
 @app.route('/issued/<employer_id>', methods=['GET'])
+@requires_auth
 def issued(employer_id):
     """
     GET    - pushes out tickets to provided employer_id
     """
 
     return get_tickets(employer_id)
+
+@app.errorhandler(AuthError)
+def handle_auth_error(ex):
+    response = jsonify(ex.error)
+    response.status_code = ex.status_code
+    return response
+    

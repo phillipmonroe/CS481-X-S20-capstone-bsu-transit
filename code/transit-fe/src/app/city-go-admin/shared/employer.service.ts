@@ -19,6 +19,9 @@ export class EmployerService {
   employers$ = this.employers.asObservable();
   employerArray: Employer[] = [];
 
+  constructor(
+    private http: HttpClient) { }
+
   initEmployers() {
     this.getEmployers().subscribe(result => { this.employers.next(result); this.employerArray = result });
     this.employers$ = this.employers.asObservable();
@@ -29,8 +32,6 @@ export class EmployerService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(
-    private http: HttpClient) { }
 
   /**
    * Get all employers in the databse

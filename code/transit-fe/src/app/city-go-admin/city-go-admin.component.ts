@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
 import { EmployerService } from './shared/employer.service';
 import { Router } from "@angular/router";
 import { AuthService } from '../auth.service';
