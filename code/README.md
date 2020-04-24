@@ -9,9 +9,6 @@ The purpose of this application is to allow City Go Administrators and City Go C
 2. Admins/employers created in our backend are not created in Auth0 (currently made through dashboard)
 3. 
 
-## Application Architecture Overview
---TODO--
-
 ## User: City Go Administrator
 
 A City Go Administrator should have the ability to log on to the application and view Employers that have signed up for City Go transit benefits. Admins need the ability to Add, Remove, and Update Employers as well as their employees. Transit benefits should be distributed to every employee listed under an employer.
