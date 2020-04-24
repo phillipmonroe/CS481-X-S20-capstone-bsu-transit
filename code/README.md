@@ -8,6 +8,9 @@ The purpose of this application is to allow City Go Administrators and City Go C
 1. Employers have access to ALL employees, not just their own
 2. Admins/employers created in our backend are not created in Auth0 (currently made through dashboard)
 3. Front end is missing update and delete functionality for both City-Go-Admin and Employer views
+4. Admin/Employer front end doesn't have a button for issuing tickets to Employees.
+5. Front end doesn't send information of currently logged in account to backend (to issue ticket to logged in Employer etc.)
+6. Current status of Employees (issued ticket vs. not issued ticket) is not being displayed.
 
 ## User: City Go Administrator
 
