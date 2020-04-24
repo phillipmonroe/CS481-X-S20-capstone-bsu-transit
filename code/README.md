@@ -7,7 +7,7 @@ The purpose of this application is to allow City Go Administrators and City Go C
 #### Current Limitations
 1. Employers have access to ALL employees, not just their own
 2. Admins/employers created in our backend are not created in Auth0 (currently made through dashboard)
-3. 
+3. Front end is missing update and delete functionality for both City-Go-Admin and Employer views
 
 ## User: City Go Administrator
 
